@@ -11846,7 +11846,7 @@ Size 6
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
@@ -11900,8 +11900,8 @@ float64
 int32
 
 
-[[ 0.95929874  0.63895806  0.75891893]
- [ 0.98070539  0.60982938  0.37059916]]
+[[ 0.96734042  0.82022867  0.86482691]
+ [ 0.42383321  0.41762804  0.00813502]]
 
 
 [1 2 3 4 5]
@@ -11909,8 +11909,8 @@ int32
  [ 8 10 12]]
 [ 0.  0.  0.  0.  0.  0.]
 [1 1 1 1 1 1]
-[[ 0.95929874  0.63895806  0.75891893]
- [ 0.98070539  0.60982938  0.37059916]]
+[[ 0.96734042  0.82022867  0.86482691]
+ [ 0.42383321  0.41762804  0.00813502]]
 </pre>
 </div>
 </div>
@@ -12174,16 +12174,16 @@ dtype: object
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0.006114812109898615
--0.45450955705749774
+<pre>0.7492971457843067
+-1.6628355868274651
           0         1         2
-0 -0.438350  1.376644 -1.286232
-1  1.655495  0.447112 -2.182412
-2 -0.303994 -0.051275 -0.145095
-3  1.998624 -1.492464 -0.494539
-4  2.076563 -0.537293 -0.203272
-5 -0.181646  0.869088 -1.184304
-6 -0.752130  0.479249 -1.793272
+0  2.199907 -0.949261  0.555008
+1  0.060094 -0.962732 -0.766770
+2 -0.078414 -1.264800 -0.559800
+3 -0.191280 -0.911443 -0.057664
+4  0.757990 -0.248717 -0.068190
+5  0.610057  1.576834  0.335271
+6  1.021789 -2.126972  0.621497
 </pre>
 </div>
 </div>
@@ -12194,7 +12194,7 @@ dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Method one: use array to create DataFrame</span>
@@ -12202,7 +12202,7 @@ dtype: object
 <span class="nb">print</span><span class="p">(</span><span class="n">eat</span><span class="p">)</span>
 <span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20170812&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
-<span class="c1">#print(np.dtype(dates))</span>
+<span class="c1"># print(np.dtype(dates))</span>
 <span class="n">df0</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">eat</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df0</span><span class="p">)</span>
 <span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">eat</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Breakfast&#39;</span><span class="p">,</span> <span class="s1">&#39;Lunch&#39;</span><span class="p">,</span> <span class="s1">&#39;Dinner&#39;</span><span class="p">])</span>
@@ -12221,32 +12221,32 @@ dtype: object
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[75 80 50]
- [70 85 95]
- [85 75 55]
- [85 65 95]
- [55 85 50]
- [75 85 65]
- [70 70 50]]
+<pre>[[50 85 50]
+ [60 55 70]
+ [90 75 90]
+ [80 80 95]
+ [80 70 55]
+ [80 50 50]
+ [55 65 55]]
 DatetimeIndex([&#39;2017-08-12&#39;, &#39;2017-08-13&#39;, &#39;2017-08-14&#39;, &#39;2017-08-15&#39;,
                &#39;2017-08-16&#39;, &#39;2017-08-17&#39;, &#39;2017-08-18&#39;],
               dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)
     0   1   2
-0  75  80  50
-1  70  85  95
-2  85  75  55
-3  85  65  95
-4  55  85  50
-5  75  85  65
-6  70  70  50
+0  50  85  50
+1  60  55  70
+2  90  75  90
+3  80  80  95
+4  80  70  55
+5  80  50  50
+6  55  65  55
             Breakfast  Lunch  Dinner
-2017-08-12         75     80      50
-2017-08-13         70     85      95
-2017-08-14         85     75      55
-2017-08-15         85     65      95
-2017-08-16         55     85      50
-2017-08-17         75     85      65
-2017-08-18         70     70      50
+2017-08-12         50     85      50
+2017-08-13         60     55      70
+2017-08-14         90     75      90
+2017-08-15         80     80      95
+2017-08-16         80     70      55
+2017-08-17         80     50      50
+2017-08-18         55     65      55
 </pre>
 </div>
 </div>
@@ -12344,29 +12344,29 @@ DatetimeIndex([&#39;2017-08-12&#39;, &#39;2017-08-13&#39;, &#39;2017-08-14&#39;,
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>            Breakfast  Lunch  Dinner
-2017-08-12         75     80      50
-2017-08-13         70     85      95
-2017-08-14         85     75      55
-2017-08-15         85     65      95
-2017-08-16         55     85      50
-2017-08-17         75     85      65
-2017-08-18         70     70      50
+2017-08-12         85     75      55
+2017-08-13         90     60      55
+2017-08-14         65     50      65
+2017-08-15         85     55      95
+2017-08-16         75     95      95
+2017-08-17         65     85      80
+2017-08-18         65     60      50
 
 
-2017-08-12    80
-2017-08-13    85
-2017-08-14    75
-2017-08-15    65
-2017-08-16    85
+2017-08-12    75
+2017-08-13    60
+2017-08-14    50
+2017-08-15    55
+2017-08-16    95
 2017-08-17    85
-2017-08-18    70
+2017-08-18    60
 Freq: D, Name: Lunch, dtype: int32
 
 
             Breakfast  Lunch  Dinner
-2017-08-12         75     80      50
-2017-08-13         70     85      95
-2017-08-14         85     75      55
+2017-08-12         85     75      55
+2017-08-13         90     60      55
+2017-08-14         65     50      65
 </pre>
 </div>
 </div>
@@ -12406,34 +12406,34 @@ Freq: D, Name: Lunch, dtype: int32
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>            Breakfast  Lunch  Dinner
-2017-08-12         75     80      50
-2017-08-13         70     85      95
-2017-08-14         85     75      55
-2017-08-15         85     65      95
-2017-08-16         55     85      50
-2017-08-17         75     85      65
-2017-08-18         70     70      50
-Breakfast    75
-Lunch        80
-Dinner       50
+2017-08-12         85     75      55
+2017-08-13         90     60      55
+2017-08-14         65     50      65
+2017-08-15         85     55      95
+2017-08-16         75     95      95
+2017-08-17         65     85      80
+2017-08-18         65     60      50
+Breakfast    85
+Lunch        75
+Dinner       55
 Name: 2017-08-12 00:00:00, dtype: int32
             Breakfast  Lunch
-2017-08-13         70     85
-2017-08-14         85     75
-2017-08-15         85     65
-2017-08-16         55     85
+2017-08-13         90     60
+2017-08-14         65     50
+2017-08-15         85     55
+2017-08-16         75     95
 
 
-65
+55
             Lunch  Dinner
-2017-08-15     65      95
-2017-08-16     85      50
+2017-08-15     55      95
+2017-08-16     95      95
 
 
             Lunch  Dinner
-2017-08-12     80      50
-2017-08-13     85      95
-2017-08-14     75      55
+2017-08-12     75      55
+2017-08-13     60      55
+2017-08-14     50      65
 </pre>
 </div>
 </div>
@@ -12480,9 +12480,8 @@ http://pandas.pydata.org/pandas-docs/stable/indexing.html#deprecate_ix
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>            Breakfast  Lunch  Dinner
-2017-08-13         70     85      95
-2017-08-16         55     85      50
-2017-08-17         75     85      65
+2017-08-16         75     95      95
+2017-08-17         65     85      80
 </pre>
 </div>
 </div>
@@ -12520,17 +12519,16 @@ http://pandas.pydata.org/pandas-docs/stable/indexing.html#deprecate_ix
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>            Breakfast  Lunch  Dinner
-2017-08-13         70     85      95
-2017-08-16         55     85      50
-2017-08-17         75     85      65
+2017-08-16         75     95      95
+2017-08-17         65     85      80
             Breakfast  Lunch  Dinner
-2017-08-12         75   80.0      50
-2017-08-13         70   85.0      95
-2017-08-14         85    NaN      55
-2017-08-15         85   65.0      95
-2017-08-16         55   85.0      50
-2017-08-17         75   85.0      65
-2017-08-18         70   70.0      50
+2017-08-12         85   75.0      55
+2017-08-13         90   60.0      55
+2017-08-14         65    NaN      65
+2017-08-15         85   55.0      95
+2017-08-16         75   95.0      95
+2017-08-17         65   85.0      80
+2017-08-18         65   60.0      50
 Breakfast      int32
 Lunch        float64
 Dinner         int32
@@ -12643,44 +12641,44 @@ dtype: int64</pre>
   <tbody>
     <tr>
       <th>2017-08-12</th>
-      <td>75</td>
-      <td>80.0</td>
-      <td>50</td>
+      <td>85</td>
+      <td>75.0</td>
+      <td>55</td>
     </tr>
     <tr>
       <th>2017-08-13</th>
-      <td>70</td>
-      <td>85.0</td>
-      <td>95</td>
+      <td>90</td>
+      <td>60.0</td>
+      <td>55</td>
     </tr>
     <tr>
       <th>2017-08-14</th>
-      <td>85</td>
+      <td>65</td>
       <td>0.0</td>
-      <td>55</td>
+      <td>65</td>
     </tr>
     <tr>
       <th>2017-08-15</th>
       <td>85</td>
-      <td>65.0</td>
+      <td>55.0</td>
       <td>95</td>
     </tr>
     <tr>
       <th>2017-08-16</th>
-      <td>55</td>
-      <td>85.0</td>
-      <td>50</td>
+      <td>75</td>
+      <td>95.0</td>
+      <td>95</td>
     </tr>
     <tr>
       <th>2017-08-17</th>
-      <td>75</td>
-      <td>85.0</td>
       <td>65</td>
+      <td>85.0</td>
+      <td>80</td>
     </tr>
     <tr>
       <th>2017-08-18</th>
-      <td>70</td>
-      <td>70.0</td>
+      <td>65</td>
+      <td>60.0</td>
       <td>50</td>
     </tr>
   </tbody>
@@ -12721,13 +12719,13 @@ dtype: int64</pre>
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>            Breakfast  Lunch  Dinner
-2017-08-12         75   80.0      50
-2017-08-13         70   85.0      95
-2017-08-14         85    NaN      55
-2017-08-15         85   65.0      95
-2017-08-16         55   85.0      50
-2017-08-17         75   85.0      65
-2017-08-18         70   70.0      50
+2017-08-12         85   75.0      55
+2017-08-13         90   60.0      55
+2017-08-14         65    NaN      65
+2017-08-15         85   55.0      95
+2017-08-16         75   95.0      95
+2017-08-17         65   85.0      80
+2017-08-18         65   60.0      50
 </pre>
 </div>
 </div>
@@ -12763,38 +12761,38 @@ dtype: int64</pre>
   <tbody>
     <tr>
       <th>2017-08-12</th>
-      <td>75</td>
-      <td>80.0</td>
-      <td>50</td>
+      <td>85</td>
+      <td>75.0</td>
+      <td>55</td>
     </tr>
     <tr>
       <th>2017-08-13</th>
-      <td>70</td>
-      <td>85.0</td>
-      <td>95</td>
+      <td>90</td>
+      <td>60.0</td>
+      <td>55</td>
     </tr>
     <tr>
       <th>2017-08-15</th>
       <td>85</td>
-      <td>65.0</td>
+      <td>55.0</td>
       <td>95</td>
     </tr>
     <tr>
       <th>2017-08-16</th>
-      <td>55</td>
-      <td>85.0</td>
-      <td>50</td>
+      <td>75</td>
+      <td>95.0</td>
+      <td>95</td>
     </tr>
     <tr>
       <th>2017-08-17</th>
-      <td>75</td>
-      <td>85.0</td>
       <td>65</td>
+      <td>85.0</td>
+      <td>80</td>
     </tr>
     <tr>
       <th>2017-08-18</th>
-      <td>70</td>
-      <td>70.0</td>
+      <td>65</td>
+      <td>60.0</td>
       <td>50</td>
     </tr>
   </tbody>
@@ -12832,13 +12830,13 @@ dtype: int64</pre>
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>            Breakfast  Lunch  Dinner
-2017-08-12         75   80.0      50
-2017-08-13         70   85.0      95
-2017-08-14         85    NaN      55
-2017-08-15         85   65.0      95
-2017-08-16         55   85.0      50
-2017-08-17         75   85.0      65
-2017-08-18         70   70.0      50
+2017-08-12         85   75.0      55
+2017-08-13         90   60.0      55
+2017-08-14         65    NaN      65
+2017-08-15         85   55.0      95
+2017-08-16         75   95.0      95
+2017-08-17         65   85.0      80
+2017-08-18         65   60.0      50
 </pre>
 </div>
 </div>
@@ -12874,44 +12872,44 @@ dtype: int64</pre>
   <tbody>
     <tr>
       <th>2017-08-12</th>
-      <td>75</td>
-      <td>80.0</td>
-      <td>50</td>
+      <td>85</td>
+      <td>75.0</td>
+      <td>55</td>
     </tr>
     <tr>
       <th>2017-08-13</th>
-      <td>70</td>
-      <td>85.0</td>
-      <td>95</td>
+      <td>90</td>
+      <td>60.0</td>
+      <td>55</td>
     </tr>
     <tr>
       <th>2017-08-14</th>
-      <td>85</td>
+      <td>65</td>
       <td>NaN</td>
-      <td>55</td>
+      <td>65</td>
     </tr>
     <tr>
       <th>2017-08-15</th>
       <td>85</td>
-      <td>65.0</td>
+      <td>55.0</td>
       <td>95</td>
     </tr>
     <tr>
       <th>2017-08-16</th>
-      <td>55</td>
-      <td>85.0</td>
-      <td>50</td>
+      <td>75</td>
+      <td>95.0</td>
+      <td>95</td>
     </tr>
     <tr>
       <th>2017-08-17</th>
-      <td>75</td>
-      <td>85.0</td>
       <td>65</td>
+      <td>85.0</td>
+      <td>80</td>
     </tr>
     <tr>
       <th>2017-08-18</th>
-      <td>70</td>
-      <td>70.0</td>
+      <td>65</td>
+      <td>60.0</td>
       <td>50</td>
     </tr>
   </tbody>
@@ -12957,28 +12955,28 @@ dtype: int64</pre>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[ 75.  80.  50.]
- [ 70.  85.  95.]
- [ 85.  nan  55.]
- [ 85.  65.  95.]
- [ 55.  85.  50.]
- [ 75.  85.  65.]
- [ 70.  70.  50.]]
+<pre>[[ 85.  75.  55.]
+ [ 90.  60.  55.]
+ [ 65.  nan  65.]
+ [ 85.  55.  95.]
+ [ 75.  95.  95.]
+ [ 65.  85.  80.]
+ [ 65.  60.  50.]]
 float64
-[[ 75.          80.          50.        ]
- [ 70.          85.          95.        ]
- [ 85.          78.33333333  55.        ]
- [ 85.          65.          95.        ]
- [ 55.          85.          50.        ]
- [ 75.          85.          65.        ]
- [ 70.          70.          50.        ]]
-[[ 75.          80.          50.        ]
- [ 70.          85.          95.        ]
- [ 85.          78.33333333  55.        ]
- [ 85.          65.          95.        ]
- [ 55.          85.          50.        ]
- [ 75.          85.          65.        ]
- [ 70.          70.          50.        ]]
+[[ 85.          75.          55.        ]
+ [ 90.          60.          55.        ]
+ [ 65.          71.66666667  65.        ]
+ [ 85.          55.          95.        ]
+ [ 75.          95.          95.        ]
+ [ 65.          85.          80.        ]
+ [ 65.          60.          50.        ]]
+[[ 85.          75.          55.        ]
+ [ 90.          60.          55.        ]
+ [ 65.          71.66666667  65.        ]
+ [ 85.          55.          95.        ]
+ [ 75.          95.          95.        ]
+ [ 65.          85.          80.        ]
+ [ 65.          60.          50.        ]]
 </pre>
 </div>
 </div>
@@ -13073,7 +13071,7 @@ float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pandas merge DataFrame</span>
@@ -13097,7 +13095,7 @@ float64
 <span class="n">res_inner</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df4_merge</span><span class="p">,</span> <span class="n">df5_merge</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res_outer</span><span class="p">)</span>
 <span class="n">res_reset</span> <span class="o">=</span> <span class="n">res_inner</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">res_reset</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">res_reset</span><span class="p">))</span> <span class="c1"># Same as print(list(res_reset))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res_reset</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res_reset</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]))</span>
 <span class="c1"># print(res_outer, res_inner, sep=&#39;\n&#39;)</span>
@@ -13133,7 +13131,7 @@ RangeIndex(start=0, stop=3, step=1)
 3  1.0  1.0  1.0
 4  1.0  1.0  1.0
 5  1.0  1.0  1.0
-&lt;pandas.core.groupby.DataFrameGroupBy object at 0x000001B01F0F9278&gt;
+&lt;pandas.core.groupby.DataFrameGroupBy object at 0x0000020FE29BAEF0&gt;
 </pre>
 </div>
 </div>
@@ -13144,7 +13142,7 @@ RangeIndex(start=0, stop=3, step=1)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
@@ -13159,6 +13157,7 @@ RangeIndex(start=0, stop=3, step=1)
     <span class="s1">&#39;Num&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">22.1</span><span class="p">,</span> <span class="mf">8.6</span><span class="p">,</span> <span class="mf">7.6</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">,</span> <span class="mf">22.1</span><span class="p">,</span> <span class="mf">8.6</span><span class="p">],</span>
     <span class="s1">&#39;Color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Yellow&#39;</span><span class="p">,</span><span class="s1">&#39;Orange&#39;</span><span class="p">,</span><span class="s1">&#39;Green&#39;</span><span class="p">,</span><span class="s1">&#39;Green&#39;</span><span class="p">,</span><span class="s1">&#39;Red&#39;</span><span class="p">,</span><span class="s1">&#39;Orange&#39;</span><span class="p">]</span>
 <span class="p">})</span>
+
 <span class="n">dates_test</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span><span class="mi">4</span><span class="p">:</span>
@@ -13173,12 +13172,18 @@ RangeIndex(start=0, stop=3, step=1)
 
 <span class="n">df_merge_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1_test</span><span class="p">,</span> <span class="n">df2_test</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df_merge_test</span><span class="p">)</span>
+
 <span class="n">df_merge_test</span> <span class="o">=</span> <span class="n">df_merge_test</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1">#pd.concat([df1_test, df2_test], ignore_index=True) could get the same effect</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df_merge_test</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df_merge_test</span><span class="p">))</span> <span class="c1">#Same as list(df_merge_test.columns) </span>
 <span class="n">df_gpby</span> <span class="o">=</span> <span class="n">df_merge_test</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df_merge_test</span><span class="p">))</span>
 <span class="c1"># print(df_gpby.groups)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df_gpby</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 <span class="c1"># print(df_gpby.count())</span>
+
+<span class="c1"># for x in df_gpby.groups.values():</span>
+<span class="c1">#     print(x)</span>
 <span class="n">idx</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df_gpby</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
 
@@ -13186,6 +13191,75 @@ RangeIndex(start=0, stop=3, step=1)
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>        Date   Color   Fruit   Num
+0 2017-08-12  Yellow  Banana  22.1
+1 2017-08-12  Orange  Orange   8.6
+2 2017-08-12   Green   Apple   7.6
+3 2017-08-12   Green  Celery  10.2
+4 2017-08-13     Red   Apple  22.1
+5 2017-08-13  Orange  Orange   8.6
+    Color       Date   Fruit   Num
+0   Yello 2017-08-12  Banana  22.1
+1  Orange 2017-08-12  Orange   8.6
+2   Green 2017-08-12   Apple   7.6
+3   Green 2017-08-12  Celery  10.2
+    Color       Date   Fruit   Num
+0   Yello 2017-08-12  Banana  22.1
+1  Orange 2017-08-12  Orange   8.6
+2   Green 2017-08-12   Apple   7.6
+3   Green 2017-08-12  Celery  10.2
+0  Yellow 2017-08-12  Banana  22.1
+1  Orange 2017-08-12  Orange   8.6
+2   Green 2017-08-12   Apple   7.6
+3   Green 2017-08-12  Celery  10.2
+4     Red 2017-08-13   Apple  22.1
+5  Orange 2017-08-13  Orange   8.6
+    Color       Date   Fruit   Num
+0   Yello 2017-08-12  Banana  22.1
+1  Orange 2017-08-12  Orange   8.6
+2   Green 2017-08-12   Apple   7.6
+3   Green 2017-08-12  Celery  10.2
+4  Yellow 2017-08-12  Banana  22.1
+5  Orange 2017-08-12  Orange   8.6
+6   Green 2017-08-12   Apple   7.6
+7   Green 2017-08-12  Celery  10.2
+8     Red 2017-08-13   Apple  22.1
+9  Orange 2017-08-13  Orange   8.6
+[&#39;Color&#39;, &#39;Date&#39;, &#39;Fruit&#39;, &#39;Num&#39;]
+dict_values([Int64Index([2, 6], dtype=&#39;int64&#39;), Int64Index([3, 7], dtype=&#39;int64&#39;), Int64Index([1, 5], dtype=&#39;int64&#39;), Int64Index([9], dtype=&#39;int64&#39;), Int64Index([8], dtype=&#39;int64&#39;), Int64Index([0], dtype=&#39;int64&#39;), Int64Index([4], dtype=&#39;int64&#39;)])
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-57-6d96864a81d5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-fg">     37</span> 
+<span class="ansi-green-fg">     38</span> <span class="ansi-green-intense-fg ansi-bold">for</span> x <span class="ansi-green-intense-fg ansi-bold">in</span> df_gpby<span class="ansi-yellow-intense-fg ansi-bold">.</span>groups<span class="ansi-yellow-intense-fg ansi-bold">.</span>values<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 39</span><span class="ansi-yellow-intense-fg ansi-bold">     </span>print<span class="ansi-yellow-intense-fg ansi-bold">(</span>x<span class="ansi-yellow-intense-fg ansi-bold">.</span>dtypes<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     40</span> idx <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-yellow-intense-fg ansi-bold">[</span>x<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">]</span> <span class="ansi-green-intense-fg ansi-bold">for</span> x <span class="ansi-green-intense-fg ansi-bold">in</span> df_gpby<span class="ansi-yellow-intense-fg ansi-bold">.</span>groups<span class="ansi-yellow-intense-fg ansi-bold">.</span>values<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span> <span class="ansi-green-intense-fg ansi-bold">if</span> len<span class="ansi-yellow-intense-fg ansi-bold">(</span>x<span class="ansi-yellow-intense-fg ansi-bold">)</span> <span class="ansi-yellow-intense-fg ansi-bold">==</span> <span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">]</span>
+<span class="ansi-green-fg">     41</span> print<span class="ansi-yellow-intense-fg ansi-bold">(</span>idx<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>: &#39;Int64Index&#39; object has no attribute &#39;dtypes&#39;</pre>
+</div>
+</div>
+
 </div>
 </div>
 

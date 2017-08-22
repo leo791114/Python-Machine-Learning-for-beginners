@@ -21,7 +21,7 @@ print('Shape', array.shape)
 print('Size', array.size)
 
 
-# In[4]:
+# In[51]:
 
 a = np.array([1,2,3,4,5])
 b = np.arange(2,14,2).reshape((2,3))#Create an array from two to twelve, not included, with step of two
@@ -113,14 +113,14 @@ df = pd.DataFrame(np.random.randn(7,3))
 print(df)
 
 
-# In[11]:
+# In[46]:
 
 #Method one: use array to create DataFrame
 eat = np.random.randint(10, size=(7,3))*5+50
 print(eat)
 dates = pd.date_range('20170812', periods=7)
 print(dates)
-#print(np.dtype(dates))
+# print(np.dtype(dates))
 df0 = pd.DataFrame(eat)
 print(df0)
 df1 = pd.DataFrame(eat, index=dates, columns=['Breakfast', 'Lunch', 'Dinner'])
@@ -257,7 +257,7 @@ print(data)
 data.to_csv('nescsv2_transpose.csv')
 
 
-# In[23]:
+# In[34]:
 
 # Pandas merge DataFrame
 
@@ -280,14 +280,14 @@ res_outer = pd.concat([df4_merge, df5_merge], axis=0, join='outer', ignore_index
 res_inner = pd.concat([df4_merge, df5_merge], axis=0, join='inner', ignore_index=False)
 print(res_outer)
 res_reset = res_inner.reset_index(drop=True)
-print(list(res_reset.columns))
+print(list(res_reset)) # Same as print(list(res_reset))
 print(res_reset)
 print(res_reset.groupby(['b','c']))
 # print(res_outer, res_inner, sep='\n')
 # print(diff_inner_outer)
 
 
-# In[ ]:
+# In[57]:
 
 df1_test = pd.DataFrame({
     'Date': pd.Timestamp('20170812'),
@@ -301,6 +301,7 @@ df2_test = pd.DataFrame({
     'Num': [22.1, 8.6, 7.6, 10.2, 22.1, 8.6],
     'Color': ['Yellow','Orange','Green','Green','Red','Orange']
 })
+
 dates_test = []
 for i in range(1,7):
     if i <=4:
@@ -315,12 +316,18 @@ print(df1_test)
 
 df_merge_test = pd.concat([df1_test, df2_test])
 print(df_merge_test)
+
 df_merge_test = df_merge_test.reset_index(drop = True) #pd.concat([df1_test, df2_test], ignore_index=True) could get the same effect
 print(df_merge_test)
+
+print (list(df_merge_test)) #Same as list(df_merge_test.columns) 
 df_gpby = df_merge_test.groupby(list(df_merge_test))
 # print(df_gpby.groups)
 print(df_gpby.groups.values())
 # print(df_gpby.count())
+
+# for x in df_gpby.groups.values():
+#     print(x)
 idx = [x[0] for x in df_gpby.groups.values() if len(x) == 1]
 print(idx)
 
