@@ -21,7 +21,7 @@ print('Shape', array.shape)
 print('Size', array.size)
 
 
-# In[51]:
+# In[4]:
 
 a = np.array([1,2,3,4,5])
 b = np.arange(2,14,2).reshape((2,3))#Create an array from two to twelve, not included, with step of two
@@ -90,12 +90,12 @@ print(np.hsplit(a,2)) #Horizontally split the array into 2 new arrays
 
 # <h3 style="color:blue">Series</h3>
 
-# In[9]:
+# In[26]:
 
 import pandas as pd
 s = pd.Series([1,'abc','6',np.nan,44,1])
 a = np.array([1,'abc','6',np.nan,44,1])
-
+print(t)
 print(s)
 print(a)
 
@@ -113,7 +113,7 @@ df = pd.DataFrame(np.random.randn(7,3))
 print(df)
 
 
-# In[46]:
+# In[11]:
 
 #Method one: use array to create DataFrame
 eat = np.random.randint(10, size=(7,3))*5+50
@@ -257,7 +257,7 @@ print(data)
 data.to_csv('nescsv2_transpose.csv')
 
 
-# In[34]:
+# In[23]:
 
 # Pandas merge DataFrame
 
@@ -287,7 +287,7 @@ print(res_reset.groupby(['b','c']))
 # print(diff_inner_outer)
 
 
-# In[57]:
+# In[24]:
 
 df1_test = pd.DataFrame({
     'Date': pd.Timestamp('20170812'),

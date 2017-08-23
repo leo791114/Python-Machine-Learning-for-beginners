@@ -11846,7 +11846,7 @@ Size 6
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
@@ -11900,8 +11900,8 @@ float64
 int32
 
 
-[[ 0.96734042  0.82022867  0.86482691]
- [ 0.42383321  0.41762804  0.00813502]]
+[[ 0.48776761  0.38428184  0.45575068]
+ [ 0.44611102  0.06940193  0.95641486]]
 
 
 [1 2 3 4 5]
@@ -11909,8 +11909,8 @@ int32
  [ 8 10 12]]
 [ 0.  0.  0.  0.  0.  0.]
 [1 1 1 1 1 1]
-[[ 0.96734042  0.82022867  0.86482691]
- [ 0.42383321  0.41762804  0.00813502]]
+[[ 0.48776761  0.38428184  0.45575068]
+ [ 0.44611102  0.06940193  0.95641486]]
 </pre>
 </div>
 </div>
@@ -12100,13 +12100,13 @@ int32
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span><span class="s1">&#39;6&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span><span class="s1">&#39;6&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
-
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
@@ -12122,16 +12122,32 @@ int32
 <div class="output_area">
 <div class="prompt"></div>
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0      1
-1    abc
-2      6
-3    NaN
-4     44
-5      1
-dtype: object
-[&#39;1&#39; &#39;abc&#39; &#39;6&#39; &#39;nan&#39; &#39;44&#39; &#39;1&#39;]
-</pre>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">Exception</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-26-da630ac4e450&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-fg">      3</span> a <span class="ansi-yellow-intense-fg ansi-bold">=</span> np<span class="ansi-yellow-intense-fg ansi-bold">.</span>array<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-blue-intense-fg ansi-bold">&#39;abc&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-blue-intense-fg ansi-bold">&#39;6&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span>np<span class="ansi-yellow-intense-fg ansi-bold">.</span>nan<span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">44</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">      4</span> t <span class="ansi-yellow-intense-fg ansi-bold">=</span> np<span class="ansi-yellow-intense-fg ansi-bold">.</span>arange<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">13</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">2</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>reshape<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">2</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">3</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 5</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>t_series <span class="ansi-yellow-intense-fg ansi-bold">=</span> pd<span class="ansi-yellow-intense-fg ansi-bold">.</span>Series<span class="ansi-yellow-intense-fg ansi-bold">(</span>t<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">      6</span> print<span class="ansi-yellow-intense-fg ansi-bold">(</span>t<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">      7</span> print<span class="ansi-yellow-intense-fg ansi-bold">(</span>s<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda3\lib\site-packages\pandas\core\series.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-intense-fg ansi-bold">(self, data, index, dtype, name, copy, fastpath)</span>
+<span class="ansi-green-fg">    246</span>             <span class="ansi-green-intense-fg ansi-bold">else</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-fg">    247</span>                 data = _sanitize_array(data, index, dtype, copy,
+<span class="ansi-green-intense-fg ansi-bold">--&gt; 248</span><span class="ansi-yellow-intense-fg ansi-bold">                                        raise_cast_failure=True)
+</span><span class="ansi-green-fg">    249</span> 
+<span class="ansi-green-fg">    250</span>                 data <span class="ansi-yellow-intense-fg ansi-bold">=</span> SingleBlockManager<span class="ansi-yellow-intense-fg ansi-bold">(</span>data<span class="ansi-yellow-intense-fg ansi-bold">,</span> index<span class="ansi-yellow-intense-fg ansi-bold">,</span> fastpath<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">True</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda3\lib\site-packages\pandas\core\series.py</span> in <span class="ansi-cyan-fg">_sanitize_array</span><span class="ansi-blue-intense-fg ansi-bold">(data, index, dtype, copy, raise_cast_failure)</span>
+<span class="ansi-green-fg">   3025</span>     <span class="ansi-green-intense-fg ansi-bold">elif</span> subarr<span class="ansi-yellow-intense-fg ansi-bold">.</span>ndim <span class="ansi-yellow-intense-fg ansi-bold">&gt;</span> <span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-fg">   3026</span>         <span class="ansi-green-intense-fg ansi-bold">if</span> isinstance<span class="ansi-yellow-intense-fg ansi-bold">(</span>data<span class="ansi-yellow-intense-fg ansi-bold">,</span> np<span class="ansi-yellow-intense-fg ansi-bold">.</span>ndarray<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">-&gt; 3027</span><span class="ansi-yellow-intense-fg ansi-bold">             </span><span class="ansi-green-intense-fg ansi-bold">raise</span> Exception<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#39;Data must be 1-dimensional&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">   3028</span>         <span class="ansi-green-intense-fg ansi-bold">else</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-fg">   3029</span>             subarr <span class="ansi-yellow-intense-fg ansi-bold">=</span> _asarray_tuplesafe<span class="ansi-yellow-intense-fg ansi-bold">(</span>data<span class="ansi-yellow-intense-fg ansi-bold">,</span> dtype<span class="ansi-yellow-intense-fg ansi-bold">=</span>dtype<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">Exception</span>: Data must be 1-dimensional</pre>
 </div>
 </div>
 
@@ -12174,16 +12190,16 @@ dtype: object
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0.7492971457843067
--1.6628355868274651
+<pre>0.5839722570436592
+0.4093015853516462
           0         1         2
-0  2.199907 -0.949261  0.555008
-1  0.060094 -0.962732 -0.766770
-2 -0.078414 -1.264800 -0.559800
-3 -0.191280 -0.911443 -0.057664
-4  0.757990 -0.248717 -0.068190
-5  0.610057  1.576834  0.335271
-6  1.021789 -2.126972  0.621497
+0 -0.758051  0.636775 -0.241517
+1 -1.895949  0.877156  0.231708
+2  0.246216 -1.697919  2.487644
+3 -0.850032 -0.435629  0.794044
+4 -0.471317 -0.642517 -0.200104
+5 -0.626027  0.814582 -0.326108
+6  0.253727 -0.280856 -0.100477
 </pre>
 </div>
 </div>
@@ -12194,7 +12210,7 @@ dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Method one: use array to create DataFrame</span>
@@ -12221,32 +12237,32 @@ dtype: object
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[50 85 50]
- [60 55 70]
- [90 75 90]
- [80 80 95]
- [80 70 55]
- [80 50 50]
- [55 65 55]]
+<pre>[[55 85 75]
+ [85 90 95]
+ [90 60 55]
+ [95 70 70]
+ [85 95 80]
+ [85 90 85]
+ [65 90 80]]
 DatetimeIndex([&#39;2017-08-12&#39;, &#39;2017-08-13&#39;, &#39;2017-08-14&#39;, &#39;2017-08-15&#39;,
                &#39;2017-08-16&#39;, &#39;2017-08-17&#39;, &#39;2017-08-18&#39;],
               dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)
     0   1   2
-0  50  85  50
-1  60  55  70
-2  90  75  90
-3  80  80  95
-4  80  70  55
-5  80  50  50
-6  55  65  55
+0  55  85  75
+1  85  90  95
+2  90  60  55
+3  95  70  70
+4  85  95  80
+5  85  90  85
+6  65  90  80
             Breakfast  Lunch  Dinner
-2017-08-12         50     85      50
-2017-08-13         60     55      70
-2017-08-14         90     75      90
-2017-08-15         80     80      95
-2017-08-16         80     70      55
-2017-08-17         80     50      50
-2017-08-18         55     65      55
+2017-08-12         55     85      75
+2017-08-13         85     90      95
+2017-08-14         90     60      55
+2017-08-15         95     70      70
+2017-08-16         85     95      80
+2017-08-17         85     90      85
+2017-08-18         65     90      80
 </pre>
 </div>
 </div>
@@ -12344,29 +12360,29 @@ DatetimeIndex([&#39;2017-08-12&#39;, &#39;2017-08-13&#39;, &#39;2017-08-14&#39;,
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>            Breakfast  Lunch  Dinner
-2017-08-12         85     75      55
-2017-08-13         90     60      55
-2017-08-14         65     50      65
-2017-08-15         85     55      95
-2017-08-16         75     95      95
-2017-08-17         65     85      80
-2017-08-18         65     60      50
+2017-08-12         55     85      75
+2017-08-13         85     90      95
+2017-08-14         90     60      55
+2017-08-15         95     70      70
+2017-08-16         85     95      80
+2017-08-17         85     90      85
+2017-08-18         65     90      80
 
 
-2017-08-12    75
-2017-08-13    60
-2017-08-14    50
-2017-08-15    55
+2017-08-12    85
+2017-08-13    90
+2017-08-14    60
+2017-08-15    70
 2017-08-16    95
-2017-08-17    85
-2017-08-18    60
+2017-08-17    90
+2017-08-18    90
 Freq: D, Name: Lunch, dtype: int32
 
 
             Breakfast  Lunch  Dinner
-2017-08-12         85     75      55
-2017-08-13         90     60      55
-2017-08-14         65     50      65
+2017-08-12         55     85      75
+2017-08-13         85     90      95
+2017-08-14         90     60      55
 </pre>
 </div>
 </div>
@@ -12406,34 +12422,34 @@ Freq: D, Name: Lunch, dtype: int32
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>            Breakfast  Lunch  Dinner
-2017-08-12         85     75      55
-2017-08-13         90     60      55
-2017-08-14         65     50      65
-2017-08-15         85     55      95
-2017-08-16         75     95      95
-2017-08-17         65     85      80
-2017-08-18         65     60      50
-Breakfast    85
-Lunch        75
-Dinner       55
+2017-08-12         55     85      75
+2017-08-13         85     90      95
+2017-08-14         90     60      55
+2017-08-15         95     70      70
+2017-08-16         85     95      80
+2017-08-17         85     90      85
+2017-08-18         65     90      80
+Breakfast    55
+Lunch        85
+Dinner       75
 Name: 2017-08-12 00:00:00, dtype: int32
             Breakfast  Lunch
-2017-08-13         90     60
-2017-08-14         65     50
-2017-08-15         85     55
-2017-08-16         75     95
+2017-08-13         85     90
+2017-08-14         90     60
+2017-08-15         95     70
+2017-08-16         85     95
 
 
-55
+70
             Lunch  Dinner
-2017-08-15     55      95
-2017-08-16     95      95
+2017-08-15     70      70
+2017-08-16     95      80
 
 
             Lunch  Dinner
-2017-08-12     75      55
-2017-08-13     60      55
-2017-08-14     50      65
+2017-08-12     85      75
+2017-08-13     90      95
+2017-08-14     60      55
 </pre>
 </div>
 </div>
@@ -12480,8 +12496,11 @@ http://pandas.pydata.org/pandas-docs/stable/indexing.html#deprecate_ix
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>            Breakfast  Lunch  Dinner
-2017-08-16         75     95      95
-2017-08-17         65     85      80
+2017-08-12         55     85      75
+2017-08-13         85     90      95
+2017-08-16         85     95      80
+2017-08-17         85     90      85
+2017-08-18         65     90      80
 </pre>
 </div>
 </div>
@@ -12519,16 +12538,19 @@ http://pandas.pydata.org/pandas-docs/stable/indexing.html#deprecate_ix
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>            Breakfast  Lunch  Dinner
-2017-08-16         75     95      95
-2017-08-17         65     85      80
+2017-08-12         55     85      75
+2017-08-13         85     90      95
+2017-08-16         85     95      80
+2017-08-17         85     90      85
+2017-08-18         65     90      80
             Breakfast  Lunch  Dinner
-2017-08-12         85   75.0      55
-2017-08-13         90   60.0      55
-2017-08-14         65    NaN      65
-2017-08-15         85   55.0      95
-2017-08-16         75   95.0      95
-2017-08-17         65   85.0      80
-2017-08-18         65   60.0      50
+2017-08-12         55   85.0      75
+2017-08-13         85   90.0      95
+2017-08-14         90    NaN      55
+2017-08-15         95   70.0      70
+2017-08-16         85   95.0      80
+2017-08-17         85   90.0      85
+2017-08-18         65   90.0      80
 Breakfast      int32
 Lunch        float64
 Dinner         int32
@@ -12641,45 +12663,45 @@ dtype: int64</pre>
   <tbody>
     <tr>
       <th>2017-08-12</th>
-      <td>85</td>
-      <td>75.0</td>
       <td>55</td>
+      <td>85.0</td>
+      <td>75</td>
     </tr>
     <tr>
       <th>2017-08-13</th>
-      <td>90</td>
-      <td>60.0</td>
-      <td>55</td>
+      <td>85</td>
+      <td>90.0</td>
+      <td>95</td>
     </tr>
     <tr>
       <th>2017-08-14</th>
-      <td>65</td>
+      <td>90</td>
       <td>0.0</td>
-      <td>65</td>
+      <td>55</td>
     </tr>
     <tr>
       <th>2017-08-15</th>
-      <td>85</td>
-      <td>55.0</td>
       <td>95</td>
+      <td>70.0</td>
+      <td>70</td>
     </tr>
     <tr>
       <th>2017-08-16</th>
-      <td>75</td>
+      <td>85</td>
       <td>95.0</td>
-      <td>95</td>
+      <td>80</td>
     </tr>
     <tr>
       <th>2017-08-17</th>
-      <td>65</td>
-      <td>85.0</td>
-      <td>80</td>
+      <td>85</td>
+      <td>90.0</td>
+      <td>85</td>
     </tr>
     <tr>
       <th>2017-08-18</th>
       <td>65</td>
-      <td>60.0</td>
-      <td>50</td>
+      <td>90.0</td>
+      <td>80</td>
     </tr>
   </tbody>
 </table>
@@ -12719,13 +12741,13 @@ dtype: int64</pre>
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>            Breakfast  Lunch  Dinner
-2017-08-12         85   75.0      55
-2017-08-13         90   60.0      55
-2017-08-14         65    NaN      65
-2017-08-15         85   55.0      95
-2017-08-16         75   95.0      95
-2017-08-17         65   85.0      80
-2017-08-18         65   60.0      50
+2017-08-12         55   85.0      75
+2017-08-13         85   90.0      95
+2017-08-14         90    NaN      55
+2017-08-15         95   70.0      70
+2017-08-16         85   95.0      80
+2017-08-17         85   90.0      85
+2017-08-18         65   90.0      80
 </pre>
 </div>
 </div>
@@ -12761,39 +12783,39 @@ dtype: int64</pre>
   <tbody>
     <tr>
       <th>2017-08-12</th>
-      <td>85</td>
-      <td>75.0</td>
       <td>55</td>
+      <td>85.0</td>
+      <td>75</td>
     </tr>
     <tr>
       <th>2017-08-13</th>
-      <td>90</td>
-      <td>60.0</td>
-      <td>55</td>
+      <td>85</td>
+      <td>90.0</td>
+      <td>95</td>
     </tr>
     <tr>
       <th>2017-08-15</th>
-      <td>85</td>
-      <td>55.0</td>
       <td>95</td>
+      <td>70.0</td>
+      <td>70</td>
     </tr>
     <tr>
       <th>2017-08-16</th>
-      <td>75</td>
+      <td>85</td>
       <td>95.0</td>
-      <td>95</td>
+      <td>80</td>
     </tr>
     <tr>
       <th>2017-08-17</th>
-      <td>65</td>
-      <td>85.0</td>
-      <td>80</td>
+      <td>85</td>
+      <td>90.0</td>
+      <td>85</td>
     </tr>
     <tr>
       <th>2017-08-18</th>
       <td>65</td>
-      <td>60.0</td>
-      <td>50</td>
+      <td>90.0</td>
+      <td>80</td>
     </tr>
   </tbody>
 </table>
@@ -12830,13 +12852,13 @@ dtype: int64</pre>
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>            Breakfast  Lunch  Dinner
-2017-08-12         85   75.0      55
-2017-08-13         90   60.0      55
-2017-08-14         65    NaN      65
-2017-08-15         85   55.0      95
-2017-08-16         75   95.0      95
-2017-08-17         65   85.0      80
-2017-08-18         65   60.0      50
+2017-08-12         55   85.0      75
+2017-08-13         85   90.0      95
+2017-08-14         90    NaN      55
+2017-08-15         95   70.0      70
+2017-08-16         85   95.0      80
+2017-08-17         85   90.0      85
+2017-08-18         65   90.0      80
 </pre>
 </div>
 </div>
@@ -12872,45 +12894,45 @@ dtype: int64</pre>
   <tbody>
     <tr>
       <th>2017-08-12</th>
-      <td>85</td>
-      <td>75.0</td>
       <td>55</td>
+      <td>85.0</td>
+      <td>75</td>
     </tr>
     <tr>
       <th>2017-08-13</th>
-      <td>90</td>
-      <td>60.0</td>
-      <td>55</td>
+      <td>85</td>
+      <td>90.0</td>
+      <td>95</td>
     </tr>
     <tr>
       <th>2017-08-14</th>
-      <td>65</td>
+      <td>90</td>
       <td>NaN</td>
-      <td>65</td>
+      <td>55</td>
     </tr>
     <tr>
       <th>2017-08-15</th>
-      <td>85</td>
-      <td>55.0</td>
       <td>95</td>
+      <td>70.0</td>
+      <td>70</td>
     </tr>
     <tr>
       <th>2017-08-16</th>
-      <td>75</td>
+      <td>85</td>
       <td>95.0</td>
-      <td>95</td>
+      <td>80</td>
     </tr>
     <tr>
       <th>2017-08-17</th>
-      <td>65</td>
-      <td>85.0</td>
-      <td>80</td>
+      <td>85</td>
+      <td>90.0</td>
+      <td>85</td>
     </tr>
     <tr>
       <th>2017-08-18</th>
       <td>65</td>
-      <td>60.0</td>
-      <td>50</td>
+      <td>90.0</td>
+      <td>80</td>
     </tr>
   </tbody>
 </table>
@@ -12955,28 +12977,28 @@ dtype: int64</pre>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[ 85.  75.  55.]
- [ 90.  60.  55.]
- [ 65.  nan  65.]
- [ 85.  55.  95.]
- [ 75.  95.  95.]
- [ 65.  85.  80.]
- [ 65.  60.  50.]]
+<pre>[[ 55.  85.  75.]
+ [ 85.  90.  95.]
+ [ 90.  nan  55.]
+ [ 95.  70.  70.]
+ [ 85.  95.  80.]
+ [ 85.  90.  85.]
+ [ 65.  90.  80.]]
 float64
-[[ 85.          75.          55.        ]
- [ 90.          60.          55.        ]
- [ 65.          71.66666667  65.        ]
- [ 85.          55.          95.        ]
- [ 75.          95.          95.        ]
- [ 65.          85.          80.        ]
- [ 65.          60.          50.        ]]
-[[ 85.          75.          55.        ]
- [ 90.          60.          55.        ]
- [ 65.          71.66666667  65.        ]
- [ 85.          55.          95.        ]
- [ 75.          95.          95.        ]
- [ 65.          85.          80.        ]
- [ 65.          60.          50.        ]]
+[[ 55.          85.          75.        ]
+ [ 85.          90.          95.        ]
+ [ 90.          86.66666667  55.        ]
+ [ 95.          70.          70.        ]
+ [ 85.          95.          80.        ]
+ [ 85.          90.          85.        ]
+ [ 65.          90.          80.        ]]
+[[ 55.          85.          75.        ]
+ [ 85.          90.          95.        ]
+ [ 90.          86.66666667  55.        ]
+ [ 95.          70.          70.        ]
+ [ 85.          95.          80.        ]
+ [ 85.          90.          85.        ]
+ [ 65.          90.          80.        ]]
 </pre>
 </div>
 </div>
@@ -13011,57 +13033,89 @@ float64
 <div class="output_area">
 <div class="prompt"></div>
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">FileNotFoundError</span>                         Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-22-fe8507b8f5c0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-fg">      2</span> 
-<span class="ansi-green-fg">      3</span> <span class="ansi-red-intense-fg ansi-bold">#load csv file</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 4</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>data <span class="ansi-yellow-intense-fg ansi-bold">=</span> pd<span class="ansi-yellow-intense-fg ansi-bold">.</span>read_csv<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#39;nescsv2.csv&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">      5</span> print<span class="ansi-yellow-intense-fg ansi-bold">(</span>data<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">      6</span> data <span class="ansi-yellow-intense-fg ansi-bold">=</span> data<span class="ansi-yellow-intense-fg ansi-bold">.</span>T
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>          Date     Value
+0   2016-10-31  2.227171
+1   2016-09-30  2.800478
+2   2016-08-31  3.697997
+3   2016-07-31  2.441189
+4   2016-06-30  2.861789
+5   2016-05-31  3.001133
+6   2016-04-30  2.935780
+7   2016-02-29  2.857551
+8   2016-01-31  3.194591
+9   2015-12-31  3.394777
+10  2015-11-30  3.353293
+11  2015-10-31  2.536585
+12  2015-09-30  3.629032
+13  2015-08-31  4.414391
+14  2015-02-28  4.705882
+15  2015-01-31  5.079365
+16  2014-12-31  5.128205
+17  2014-11-30  4.762661
+18  2014-10-31  4.008016
+19  2014-09-30  4.220779
+20  2014-08-31  4.210526
+21  2014-07-31  5.630631
+22  2014-06-30  5.265929
+23  2014-05-31  5.265929
+24  2014-04-30  4.255319
+25  2014-03-31  4.445432
+26  2014-02-28  4.273504
+27  2014-01-31  4.005340
+28  2013-12-31  4.005340
+29  2013-11-30  4.471545
+..         ...       ...
+45  2012-07-31  4.079184
+46  2012-06-30  3.940887
+47  2012-05-31  4.545455
+48  2012-04-30  4.123288
+49  2012-03-31  4.155844
+50  2012-02-29  5.357143
+51  2012-01-31  6.481069
+52  2011-12-31  5.257143
+53  2011-11-30  4.762661
+54  2011-10-31  5.591398
+55  2011-09-30  4.692388
+56  2011-08-31  5.277045
+57  2011-07-31  5.472779
+58  2011-06-30  4.492754
+59  2011-05-31  4.166667
+60  2011-04-30  4.444444
+61  2011-03-31  4.160000
+62  2011-02-28  4.623116
+63  2011-01-31  4.623116
+64  2010-12-31  5.012531
+65  2010-11-30  3.849115
+66  2010-10-31  4.555809
+67  2010-09-30  5.185185
+68  2010-08-31  4.880429
+69  2010-07-31  4.545455
+70  2010-06-30  4.255319
+71  2010-05-31  4.762857
+72  2010-04-30  5.660377
+73  2010-03-31  5.320334
+74  2010-02-28  5.691982
 
-<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda3\lib\site-packages\pandas\io\parsers.py</span> in <span class="ansi-cyan-fg">parser_f</span><span class="ansi-blue-intense-fg ansi-bold">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, escapechar, comment, encoding, dialect, tupleize_cols, error_bad_lines, warn_bad_lines, skipfooter, skip_footer, doublequote, delim_whitespace, as_recarray, compact_ints, use_unsigned, low_memory, buffer_lines, memory_map, float_precision)</span>
-<span class="ansi-green-fg">    653</span>                     skip_blank_lines=skip_blank_lines)
-<span class="ansi-green-fg">    654</span> 
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 655</span><span class="ansi-yellow-intense-fg ansi-bold">         </span><span class="ansi-green-intense-fg ansi-bold">return</span> _read<span class="ansi-yellow-intense-fg ansi-bold">(</span>filepath_or_buffer<span class="ansi-yellow-intense-fg ansi-bold">,</span> kwds<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    656</span> 
-<span class="ansi-green-fg">    657</span>     parser_f<span class="ansi-yellow-intense-fg ansi-bold">.</span>__name__ <span class="ansi-yellow-intense-fg ansi-bold">=</span> name
+[75 rows x 2 columns]
+               0           1           2           3           4           5   \
+Date   2016-10-31  2016-09-30  2016-08-31  2016-07-31  2016-06-30  2016-05-31   
+Value     2.22717     2.80048       3.698     2.44119     2.86179     3.00113   
 
-<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda3\lib\site-packages\pandas\io\parsers.py</span> in <span class="ansi-cyan-fg">_read</span><span class="ansi-blue-intense-fg ansi-bold">(filepath_or_buffer, kwds)</span>
-<span class="ansi-green-fg">    403</span> 
-<span class="ansi-green-fg">    404</span>     <span class="ansi-red-intense-fg ansi-bold"># Create the parser.</span>
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 405</span><span class="ansi-yellow-intense-fg ansi-bold">     </span>parser <span class="ansi-yellow-intense-fg ansi-bold">=</span> TextFileReader<span class="ansi-yellow-intense-fg ansi-bold">(</span>filepath_or_buffer<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">**</span>kwds<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    406</span> 
-<span class="ansi-green-fg">    407</span>     <span class="ansi-green-intense-fg ansi-bold">if</span> chunksize <span class="ansi-green-intense-fg ansi-bold">or</span> iterator<span class="ansi-yellow-intense-fg ansi-bold">:</span>
+               6           7           8           9      ...              65  \
+Date   2016-04-30  2016-02-29  2016-01-31  2015-12-31     ...      2010-11-30   
+Value     2.93578     2.85755     3.19459     3.39478     ...         3.84911   
 
-<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda3\lib\site-packages\pandas\io\parsers.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-intense-fg ansi-bold">(self, f, engine, **kwds)</span>
-<span class="ansi-green-fg">    760</span>             self<span class="ansi-yellow-intense-fg ansi-bold">.</span>options<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-blue-intense-fg ansi-bold">&#39;has_index_names&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">]</span> <span class="ansi-yellow-intense-fg ansi-bold">=</span> kwds<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-blue-intense-fg ansi-bold">&#39;has_index_names&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">]</span>
-<span class="ansi-green-fg">    761</span> 
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 762</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_make_engine<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>engine<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    763</span> 
-<span class="ansi-green-fg">    764</span>     <span class="ansi-green-intense-fg ansi-bold">def</span> close<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+               66          67          68          69          70          71  \
+Date   2010-10-31  2010-09-30  2010-08-31  2010-07-31  2010-06-30  2010-05-31   
+Value     4.55581     5.18519     4.88043     4.54545     4.25532     4.76286   
 
-<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda3\lib\site-packages\pandas\io\parsers.py</span> in <span class="ansi-cyan-fg">_make_engine</span><span class="ansi-blue-intense-fg ansi-bold">(self, engine)</span>
-<span class="ansi-green-fg">    964</span>     <span class="ansi-green-intense-fg ansi-bold">def</span> _make_engine<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">,</span> engine<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-blue-intense-fg ansi-bold">&#39;c&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">    965</span>         <span class="ansi-green-intense-fg ansi-bold">if</span> engine <span class="ansi-yellow-intense-fg ansi-bold">==</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;c&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 966</span><span class="ansi-yellow-intense-fg ansi-bold">             </span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_engine <span class="ansi-yellow-intense-fg ansi-bold">=</span> CParserWrapper<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>f<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">**</span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>options<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    967</span>         <span class="ansi-green-intense-fg ansi-bold">else</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">    968</span>             <span class="ansi-green-intense-fg ansi-bold">if</span> engine <span class="ansi-yellow-intense-fg ansi-bold">==</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;python&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+               72          73          74  
+Date   2010-04-30  2010-03-31  2010-02-28  
+Value     5.66038     5.32033     5.69198  
 
-<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda3\lib\site-packages\pandas\io\parsers.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-intense-fg ansi-bold">(self, src, **kwds)</span>
-<span class="ansi-green-fg">   1580</span>         kwds<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-blue-intense-fg ansi-bold">&#39;allow_leading_cols&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">]</span> <span class="ansi-yellow-intense-fg ansi-bold">=</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>index_col <span class="ansi-green-intense-fg ansi-bold">is</span> <span class="ansi-green-intense-fg ansi-bold">not</span> <span class="ansi-green-intense-fg ansi-bold">False</span>
-<span class="ansi-green-fg">   1581</span> 
-<span class="ansi-green-intense-fg ansi-bold">-&gt; 1582</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_reader <span class="ansi-yellow-intense-fg ansi-bold">=</span> parsers<span class="ansi-yellow-intense-fg ansi-bold">.</span>TextReader<span class="ansi-yellow-intense-fg ansi-bold">(</span>src<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">**</span>kwds<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">   1583</span> 
-<span class="ansi-green-fg">   1584</span>         <span class="ansi-red-intense-fg ansi-bold"># XXX</span>
-
-<span class="ansi-green-intense-fg ansi-bold">pandas\_libs\parsers.pyx</span> in <span class="ansi-cyan-fg">pandas._libs.parsers.TextReader.__cinit__ (pandas\_libs\parsers.c:4209)</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-
-<span class="ansi-green-intense-fg ansi-bold">pandas\_libs\parsers.pyx</span> in <span class="ansi-cyan-fg">pandas._libs.parsers.TextReader._setup_parser_source (pandas\_libs\parsers.c:8873)</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-
-<span class="ansi-red-intense-fg ansi-bold">FileNotFoundError</span>: File b&#39;nescsv2.csv&#39; does not exist</pre>
+[2 rows x 75 columns]
+</pre>
 </div>
 </div>
 
@@ -13071,7 +13125,7 @@ float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pandas merge DataFrame</span>
@@ -13131,7 +13185,7 @@ RangeIndex(start=0, stop=3, step=1)
 3  1.0  1.0  1.0
 4  1.0  1.0  1.0
 5  1.0  1.0  1.0
-&lt;pandas.core.groupby.DataFrameGroupBy object at 0x0000020FE29BAEF0&gt;
+&lt;pandas.core.groupby.DataFrameGroupBy object at 0x0C18AB50&gt;
 </pre>
 </div>
 </div>
@@ -13142,7 +13196,7 @@ RangeIndex(start=0, stop=3, step=1)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
@@ -13238,26 +13292,74 @@ RangeIndex(start=0, stop=3, step=1)
 9  Orange 2017-08-13  Orange   8.6
 [&#39;Color&#39;, &#39;Date&#39;, &#39;Fruit&#39;, &#39;Num&#39;]
 dict_values([Int64Index([2, 6], dtype=&#39;int64&#39;), Int64Index([3, 7], dtype=&#39;int64&#39;), Int64Index([1, 5], dtype=&#39;int64&#39;), Int64Index([9], dtype=&#39;int64&#39;), Int64Index([8], dtype=&#39;int64&#39;), Int64Index([0], dtype=&#39;int64&#39;), Int64Index([4], dtype=&#39;int64&#39;)])
+[9, 8, 0, 4]
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt"></div>
+<div class="prompt output_prompt">Out[24]:</div>
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-57-6d96864a81d5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-fg">     37</span> 
-<span class="ansi-green-fg">     38</span> <span class="ansi-green-intense-fg ansi-bold">for</span> x <span class="ansi-green-intense-fg ansi-bold">in</span> df_gpby<span class="ansi-yellow-intense-fg ansi-bold">.</span>groups<span class="ansi-yellow-intense-fg ansi-bold">.</span>values<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-intense-fg ansi-bold">---&gt; 39</span><span class="ansi-yellow-intense-fg ansi-bold">     </span>print<span class="ansi-yellow-intense-fg ansi-bold">(</span>x<span class="ansi-yellow-intense-fg ansi-bold">.</span>dtypes<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">     40</span> idx <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-yellow-intense-fg ansi-bold">[</span>x<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">]</span> <span class="ansi-green-intense-fg ansi-bold">for</span> x <span class="ansi-green-intense-fg ansi-bold">in</span> df_gpby<span class="ansi-yellow-intense-fg ansi-bold">.</span>groups<span class="ansi-yellow-intense-fg ansi-bold">.</span>values<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span> <span class="ansi-green-intense-fg ansi-bold">if</span> len<span class="ansi-yellow-intense-fg ansi-bold">(</span>x<span class="ansi-yellow-intense-fg ansi-bold">)</span> <span class="ansi-yellow-intense-fg ansi-bold">==</span> <span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">]</span>
-<span class="ansi-green-fg">     41</span> print<span class="ansi-yellow-intense-fg ansi-bold">(</span>idx<span class="ansi-yellow-intense-fg ansi-bold">)</span>
 
-<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>: &#39;Int64Index&#39; object has no attribute &#39;dtypes&#39;</pre>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Color</th>
+      <th>Date</th>
+      <th>Fruit</th>
+      <th>Num</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>Orange</td>
+      <td>2017-08-13</td>
+      <td>Orange</td>
+      <td>8.6</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Red</td>
+      <td>2017-08-13</td>
+      <td>Apple</td>
+      <td>22.1</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Yello</td>
+      <td>2017-08-12</td>
+      <td>Banana</td>
+      <td>22.1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Yellow</td>
+      <td>2017-08-12</td>
+      <td>Banana</td>
+      <td>22.1</td>
+    </tr>
+  </tbody>
+</table>
 </div>
+</div>
+
 </div>
 
 </div>
