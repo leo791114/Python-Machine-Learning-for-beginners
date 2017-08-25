@@ -3,17 +3,17 @@
 
 #  <h1 style="color: red">Numpy for Beginners</h1>
 
-# In[32]:
+# In[2]:
 
 import numpy as np  #Import numpy
 
 
-# In[33]:
+# In[3]:
 
 array = np.array([[1,2,3],[4,5,6]])  #Create a two-dimensional array
 
 
-# In[34]:
+# In[4]:
 
 print(array)
 print('Dim', array.ndim)
@@ -21,7 +21,7 @@ print('Shape', array.shape)
 print('Size', array.size)
 
 
-# In[35]:
+# In[5]:
 
 a = np.array([1,2,3,4,5])
 b = np.arange(2,14,2).reshape((2,3))#Create an array from two to twelve, not included, with step of two
@@ -49,7 +49,7 @@ print(a,b,c,d,e,sep='\n')
 #print(f==5)
 
 
-# In[36]:
+# In[6]:
 
 a = np.array([[3,6,9],[12,15,18]])
 print(a)
@@ -58,7 +58,7 @@ print(np.sum(a, axis=1)) #add all elements on the basis of row
 print(np.sum(a, axis=0)) #add all elements on the basis of column
 
 
-# In[37]:
+# In[7]:
 
 a = np.array([[2,4,6],[8,10,12]])
 b = np.arange(6).reshape((2,3))
@@ -68,7 +68,7 @@ print(b.T) #transpose
 print(np.dot(a,b.T)) # This is array multiplication
 
 
-# In[38]:
+# In[8]:
 
 #Merge
 A = np.array([1,1,1])
@@ -77,7 +77,7 @@ print(np.vstack((A,B))) #vertical merge
 print(np.hstack((A,B))) #horizontal merge
 
 
-# In[39]:
+# In[9]:
 
 #Split
 a = np.arange(12).reshape((3,4))
@@ -90,7 +90,7 @@ print(np.hsplit(a,2)) #Horizontally split the array into 2 new arrays
 
 # <h3 style="color:blue">Series</h3>
 
-# In[40]:
+# In[10]:
 
 import pandas as pd
 s = pd.Series([1,'abc','6',np.nan,44,1])
@@ -102,7 +102,7 @@ print(a)
 
 #  <h3 style="color: blue">DataFrame</h3> 
 
-# In[41]:
+# In[11]:
 
 #Method one: use array to create DataFrame
 print(np.random.random()) # np.random.random returns random floats in the half-open interval [0 1)
@@ -113,7 +113,7 @@ df = pd.DataFrame(np.random.randn(7,3))
 print(df)
 
 
-# In[42]:
+# In[12]:
 
 #Method one: use array to create DataFrame
 eat = np.random.randint(10, size=(7,3))*5+50
@@ -127,7 +127,7 @@ df1 = pd.DataFrame(eat, index=dates, columns=['Breakfast', 'Lunch', 'Dinner'])
 print(df1)
 
 
-# In[43]:
+# In[13]:
 
 #Method two: use dictionary to create DataFrame
 df2 = pd.DataFrame({'Decimal': pd.Series([1,3,6,4], index=list(range(4)), dtype='float32'),
@@ -152,7 +152,7 @@ print(df2.sort_index(axis=1,ascending=False)) #axis=1 takes columns as sorting i
 print(df2.sort_values(by='Decimal'))
 
 
-# In[44]:
+# In[14]:
 
 # Pandas: Selecting data
 print(df1)
@@ -162,7 +162,7 @@ print('\n')
 print(df1[0:3])
 
 
-# In[45]:
+# In[15]:
 
 print(df1)
 # Pandas: Selecting data by label (refer to the label and not the position)
@@ -177,13 +177,13 @@ print('\n')
 print(df1.ix[:3,['Lunch','Dinner']])
 
 
-# In[46]:
+# In[16]:
 
 # Pandas: Conditional expression
 print(df1[df1.Lunch > 80])
 
 
-# In[47]:
+# In[17]:
 
 # Pandas: Re-assign data
 #df1.Dinner[df1.Lunch>80]=40  --> this method Pandas would select df1.Dinner first, and then returns
@@ -196,20 +196,20 @@ print(df1)
 print(df1.dtypes)
 
 
-# In[48]:
+# In[18]:
 
 # Pandas: Dealing with missing values
 print(df1.isnull())
 df1.isnull().sum()
 
 
-# In[49]:
+# In[19]:
 
 # Panadas: Dealing with missing values --> replace them with 0
 df1.fillna(value=0)
 
 
-# In[50]:
+# In[20]:
 
 # Panadas: Dealing with missing values --> erase the missing values
 print(df1)
@@ -220,7 +220,7 @@ df1.dropna(
 )
 
 
-# In[51]:
+# In[21]:
 
 # Pandas: Other usages
 print(df1)
@@ -228,7 +228,7 @@ df1.dropna(thresh=3)  #Keep only the rows with at least 3 non-na values
 df1.dropna(subset=['Breakfast']) #Only drops the rows or columns in the subset that have NaN value.
 
 
-# In[52]:
+# In[22]:
 
 # Pandas: Dealing with missing values --> interpolation
 from sklearn.preprocessing import Imputer
@@ -245,7 +245,7 @@ print(imputed_data)
 print(imputed_data_2)
 
 
-# In[53]:
+# In[23]:
 
 # Pandas: load file
 
@@ -257,7 +257,7 @@ print(data)
 data.to_csv('nescsv2_transpose.csv')
 
 
-# In[75]:
+# In[24]:
 
 # Pandas concat DataFrame
 
@@ -296,8 +296,133 @@ print(res_reset.groupby(['b','c']).groups.values())
 # <span>DataFrame.<b>append</b>(other, ignore_index=False, verify_integrity=False)</span>
 # <br>
 # <p>Append rows of <i>other</i> to the end of this frame, returning a new object. Columns not in this frame are added as new columns</p>
+# <br>
+# <table align="left">
+#     <tr style="border-bottom: 5px solid white">
+#         <td style="border-right: 3px solid white"><b>Parameters:</b></td>
+#         <td align='left'>
+#             <ul style="list-style: none; text-align: left; line-height: 2rem">
+#                 <li><b>Other:</b>The data to append</li>
+#                 <li><b>ignore_index:</b>If True, do not use the index labels</li>
+#                 <li><b>verify_integrity:</b>If True, raise ValueError on creating index with duplicates</li>
+#             <ul>
+#         </td>
+#     </tr>
+#     <tr>
+#         <td style="border-right: 3px solid white"><b>Returns:</b></td>
+#         <td align='left'>
+#             <ul style="list-style: none; text-align: left; line-height: 2rem">
+#                 <li><b>append:</b>DataFrame</li>
+#             </ul>
+#         </td>
+#     </tr>
+# </table>
 
-# In[55]:
+# In[28]:
+
+df1_append = pd.DataFrame(np.ones((3,4))*0, columns=['a','b','c','d'], index=[1,2,3])
+df2_append = pd.DataFrame(np.ones((3,4))*1, columns=['b','c','d','e'], index=[2,3,4])
+
+res_append = df1_append.append(df2_append, ignore_index=True)
+print(res_append)
+
+
+# <h4 style='color: blue'>Pandas merge DataFrame</h4>
+# <span>DataFrame.<b>merge</b>(right, how='inner', on=None, left_on=None, right_on=None, left_index=False, right_index=False, sort=False, suffixes=('_x','_y'), copy=True, indicator=False)</span>
+# <br>
+# <p>Merge DataFrame objects by performing a database-style join operation by columns or indexes</p>
+# <br>
+# <table align='left'>
+#     <tr style="border-bottom: 5px solid white">
+#         <td style='border-right: 2px solid white'><b>Parameters:</b></td>
+#         <td>
+#             <ul style='list-style:none ; text-align: left; line-height: 2rem'>
+#                 <li><b>right:</b> DataFrame</li>
+#                 <li><b>how:</b> {'left','right','outer','inner'}, default 'inner'</li>
+#                 <li><b>on:</b> label or list</li>
+#                 <li><b>left_on:</b> label or list, or array-like</li>
+#                 <li><b>right_on:</b> label or list, or array-like</li>
+#                 <li><b>sort:</b> boolean, default False</li>
+#                 <li><b>suffixes:</b> 2-length sequence</li>
+#                 <li><b>copy:</b> boolean, default True</li>
+#                 <li><b>indicator:</b> boolean or string, default False</li>
+#             </ul>
+#         </td>
+#     </tr>
+#     <tr>
+#         <td><b>Returns:</b></td>
+#         <td>
+#             <ul style='list-style:none; text-align: left; line-height: 2rem'>
+#                 <li><b>merged:</b> DataFrame</li>
+#             </ul>
+#         </td>
+#     </tr>
+# </table>
+
+# In[57]:
+
+left = pd.DataFrame({'key':['K0','K1','K2','K3'],
+                     'A':['A0','A1','A2','A3'],
+                     'B':['B0','B1','B2','B3']})
+right = pd.DataFrame({'key':['K1','K2','K3','K4'],
+                      'C':['C0','C1','C2','C3'],
+                      'D':['D0','D1','D2','D3']})
+
+print(left)
+print(right)
+print('\n')
+res_merge_1 = left.merge(right, on='key')
+res_merge_2 = left.merge(right,how='inner',left_index=True,right_index=True) #Same as pd.merge(left,right,how='inner')
+print(res_merge_1)
+print(res_merge_2)
+print('\n')
+
+# merge DataFrame base on [key1, key2].
+left_2 = pd.DataFrame({'key1':['K0','K1','K1','K2'],
+                      'key2':['K0','K1','K0','K1'],
+                      'A':['A0','A1','A2','A3'],
+                      'B':['B0','B1','B2','B3']})
+right_2 = pd.DataFrame({'key1':['K0','K1','K1','K2'],
+                        'key2':['K0','K0','K0','K0'],
+                        'C':['C0','C1','C2','C3'],
+                        'D':['D0','D1','D2','D3']})
+res_merge_3 = pd.merge(left_2, right_2, on=['key1','key2'], how='inner')
+print(left_2)
+print(right_2)
+print(res_merge_3)
+
+
+# <h3 style='color: blue'>pandas & matplotlib.pyplot</h3>
+
+# In[73]:
+
+# Series
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# create 100 random numbers from normal distribution
+data = pd.Series(np.random.randn(100), index=np.arange(100))
+print(data)
+
+# plot a graph from pandas data
+data.plot() # Same as plt.plot(data)
+plt.show()
+
+
+# In[74]:
+
+# DataFrame
+data_df = pd.DataFrame(
+    np.random.randn(10,4),
+    index=np.arange(10),
+    columns=list('ABCD')
+)
+
+print(data_df)
+
+
+# In[ ]:
 
 df1_test = pd.DataFrame({
     'Date': pd.Timestamp('20170812'),
