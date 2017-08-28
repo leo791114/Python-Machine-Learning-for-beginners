@@ -37,6 +37,7 @@ print('\n')
 print(d)
 print(d.dtype)
 e = np.random.random((2,3)) #Create an 2*3 array with elements that are randomly picked between 0 to 1.
+# np.random.random() v.s. np.random.rand()
 print('\n')
 print(e)
 #f = b-a
@@ -318,7 +319,7 @@ print(res_reset.groupby(['b','c']).groups.values())
 #     </tr>
 # </table>
 
-# In[28]:
+# In[25]:
 
 df1_append = pd.DataFrame(np.ones((3,4))*0, columns=['a','b','c','d'], index=[1,2,3])
 df2_append = pd.DataFrame(np.ones((3,4))*1, columns=['b','c','d','e'], index=[2,3,4])
@@ -359,7 +360,7 @@ print(res_append)
 #     </tr>
 # </table>
 
-# In[57]:
+# In[26]:
 
 left = pd.DataFrame({'key':['K0','K1','K2','K3'],
                      'A':['A0','A1','A2','A3'],
@@ -393,8 +394,16 @@ print(res_merge_3)
 
 
 # <h3 style='color: blue'>pandas & matplotlib.pyplot</h3>
+# <br>
+# <ol>
+#     <li style="line-height: 1rem">
+#         <p>plt<b>.plot</b>(data)</p>
+#         <p><b>PS:</b> If we provide a single list or array to the plot() command, matplotlib assumes it is a sequence
+#         of y values, and automatically generates the x values for us.</p>
+#     </li>
+# 
 
-# In[73]:
+# In[27]:
 
 # Series
 import pandas as pd
@@ -410,7 +419,7 @@ data.plot() # Same as plt.plot(data)
 plt.show()
 
 
-# In[74]:
+# In[69]:
 
 # DataFrame
 data_df = pd.DataFrame(
@@ -420,6 +429,37 @@ data_df = pd.DataFrame(
 )
 
 print(data_df)
+
+plt.plot(data, 'ko')
+plt.show()
+
+#scatter
+area = np.pi * (10)**2
+ax = data_df.plot.scatter(x='A',y='B',s= area,label='class1',color='lightgreen')
+data_df.plot.scatter(x='C',y='D', label='class2',color='darkred', ax=ax)
+plt.show()
+#bar
+
+menMeans = [20, 35, 30, 35, 37]
+womenMeans = [25, 32, 34, 20, 25]
+menStd = (2, 3 ,4, 1, 2)
+womenStd = (3, 5, 2, 3, 3)
+ind = np.arange(5) # the x location for the groups
+width = 0.35 # the width of the bars: can also be len(x) sequence
+
+p1 = plt.bar(ind, menMeans, width, color='#d62728', yerr=menStd)
+p2 = plt.bar(ind, womenMeans, width, bottom=menMeans, yerr=womenStd)
+print(p1[0])
+
+# p1.set_label('Men')
+# p2.set_label('Women')
+# plt.legend(loc=0, shadow=True) 
+plt.legend((p1, p2),('Men', 'Women'),loc=2,shadow=True,fontsize='medium')
+plt.ylabel('Scores')
+plt.title('Scores by group and gender')
+plt.xticks(ind, ('G1', 'G2', 'G3', 'G4', 'G5')) # Get or set the x-limits of the current ticks and labels
+plt.yticks(np.arange(0, 81, 10)) # Get or set the y-limits of the current ticks and labels
+plt.show()
 
 
 # In[ ]:
