@@ -60,6 +60,15 @@
 #     </tr>
 # </table>
 
+# <h4 style='color: green'>sklearn.neighbors:</h4>
+# <h5>It provides functionality for unsupervised and supervised neighbors-based learning methods.</h5>
+# <p>
+#     <b>Unsupervised nearest neighbors:</b> It's the foundation of many other learning methods, notably        manifold learning and spectral clustering.
+# </p>
+# <p>
+#     <b>Supervised neighbors-based learning:</b> It comes in two flavors: <em style='color: red'>classification</em> for data with discrete labels, and <em style='color: red'>regression</em> for data with continuous labels.
+# </p>
+
 # In[ ]:
 
 import numpy as np
