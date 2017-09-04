@@ -229,7 +229,7 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 
 
-# In[7]:
+# In[2]:
 
 iris = datasets.load_iris()
 # print(iris)
@@ -241,7 +241,7 @@ print(len(iris_X))
 print(len(iris_y))
 
 
-# In[16]:
+# In[3]:
 
 X_train, X_test, y_train, y_test = train_test_split(iris_X, iris_y, test_size=0.3)
 print(len(X_train))
@@ -249,7 +249,7 @@ print(len(X_train))
 print(len(y_train))
 
 
-# In[28]:
+# In[4]:
 
 #Standardize
 sc = StandardScaler()
@@ -273,7 +273,7 @@ X_train_standard = sc.transform(X_train)
 X_test_standard = sc.transform(X_test)
 
 
-# In[36]:
+# In[5]:
 
 knn = KNeighborsClassifier()
 # Fit the module using X as training data and y as target values
@@ -291,25 +291,23 @@ print(y_test!=y_predict)
 print('Misclassified samples: %d'%(y_test!=y_predict).sum())
 
 
-# In[38]:
+# In[36]:
 
 # Visualization
-plt.scatter(y_predict, y_test, alpha=0.2)
+plt.scatter(y_predict, y_test, alpha=0.2) # The color gets deeper with more overlapped points.
 plt.show()
 
 
-# In[67]:
+# In[29]:
 
 index_diff = np.where(y_test!=y_predict)
-array_diff = np.array([])
-print(type(index_diff))
-print(len(index_diff))
-print(type(index_diff[0]))
+array_diff = np.array([]).reshape(0,2)
+print(index_diff)
+
 
 for i in index_diff[0]:
-    print(y_test[i], y_predict[i])
-    np.append(array_diff, [[y_test[i], y_predict[i]]])
+    print(y_predict[i], y_test[i])
+    array_diff = np.vstack([array_diff, [y_predict[i], y_test[i]]])
     print(array_diff)
     
-# for i in np
 
