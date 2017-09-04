@@ -159,7 +159,7 @@
 # 
 
 # <li>sklearn.preprocessing.<b>StandardScaler</b>(copy=True, with_mean=True, with_std=True)</li>
-# <p>&emsp;Standardize features by removing the mean and scalling to unit variance. (normally distributed data, ex: Gaussian with 0 mean and unit variance)</p>
+# <p>&emsp;Standardize features by removing the mean and scalling to unit variance. (normally distributed data, ex: <b style='color: red'>Gaussian with 0 mean and unit variance</b>,(X-X_mean)/X_std)</p>
 # <p>&emsp;Centering and scaling happen independently on each feature by computing the relevant statistics on the samples in the training set. Mean and standard deviation are then stored to be used on later data using the transformer method.</p>
 # 
 # <table align='left'>
@@ -191,19 +191,19 @@
 #         <td>
 #             <ul style='list-style: none; text-align: left; line-height: 2.5rem'>
 #                 <li>
-#                     <b>scale_:</b> ndarray, shape[n_features]
+#                     <b>scale<u style='white-space: pre'>  </u>:</b> ndarray, shape[n<u> </u>features]
 #                     <br>
 #                     &nbsp;
 #                     Per feature relative scaling of the data
 #                 </li>
 #                 <li>
-#                     <b>mean_:</b> array of floats with shape [n_features]
+#                     <b>mean<u style='white-space: pre'>  </u>:</b> array of floats with shape [n<u> </u>features]
 #                     <br>
 #                     &nbsp;
 #                     The mean value for each feature in the training set.
 #                 </li>
 #                 <li>
-#                     <b>var_:</b> array of floats with shape [n_features]
+#                     <b>var<u style='white-space: pre'>  </u>:</b> array of floats with shape [n<u> </u>features]
 #                     <br>
 #                     &nbsp;
 #                     The variance for each feature in the training set
@@ -219,7 +219,7 @@
 #     </tr>
 # </table>
 
-# In[24]:
+# In[1]:
 
 import numpy as np
 from sklearn import datasets
@@ -229,7 +229,7 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 
 
-# In[30]:
+# In[7]:
 
 iris = datasets.load_iris()
 # print(iris)
@@ -237,9 +237,79 @@ print(iris.target_names)
 print(iris.feature_names)
 iris_X = iris.data
 iris_y = iris.target
+print(len(iris_X))
+print(len(iris_y))
 
 
-# In[ ]:
+# In[16]:
 
 X_train, X_test, y_train, y_test = train_test_split(iris_X, iris_y, test_size=0.3)
+print(len(X_train))
+# print(X_train)
+print(len(y_train))
+
+
+# In[28]:
+
+#Standardize
+sc = StandardScaler()
+sc.fit(X_train)
+
+# X_train's mean values of each feature
+X_train_mean = X_train.mean(axis=0)
+print(X_train_mean)
+print(sc.mean_)
+
+# X_train's variance for each feature
+print(sc.var_)
+
+# X_train's standard deviation of each feature
+X_train_std = X_train.std(axis=0)
+print(X_train_std)
+print(sc.scale_)
+
+# transform X_train and X_test
+X_train_standard = sc.transform(X_train)
+X_test_standard = sc.transform(X_test)
+
+
+# In[36]:
+
+knn = KNeighborsClassifier()
+# Fit the module using X as training data and y as target values
+knn.fit(X_train_standard, y_train)
+print(knn.fit(X_train_standard, y_train))
+
+# Predict the class labels for the provided data
+y_predict = knn.predict(X_test_standard)
+print(len(y_predict))
+print(y_predict)
+
+#compare y_predict and y_test
+print(y_test)
+print(y_test!=y_predict)
+print('Misclassified samples: %d'%(y_test!=y_predict).sum())
+
+
+# In[38]:
+
+# Visualization
+plt.scatter(y_predict, y_test, alpha=0.2)
+plt.show()
+
+
+# In[67]:
+
+index_diff = np.where(y_test!=y_predict)
+array_diff = np.array([])
+print(type(index_diff))
+print(len(index_diff))
+print(type(index_diff[0]))
+
+for i in index_diff[0]:
+    print(y_test[i], y_predict[i])
+    np.append(array_diff, [[y_test[i], y_predict[i]]])
+    print(array_diff)
+    
+# for i in np
 
