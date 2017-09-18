@@ -47,19 +47,37 @@ plt.show()
 # Choose K and run the algorithm
 f1 = df['Distance_Feature'].values
 f2 = df['Speeding_Feature'].values
+
 X = zip(f1, f2)
+print(X)
 
+#%%
 # Converting iterator to list
-X_list = list(X)
-print(X_list)
+# X_list = list(X)
+# print(X_list)
 
+#%%
 # Converting iterator to set
 # X_set = set(X)
 # print(X_set)
 
+#%%
+#Converting iterator to matrix
+X_matrix = np.matrix(X)
+print(X_matrix)
+print(type(X_matrix))
+
+#%%
 # Converting iterator to Numpy matrix
 # X_matrix = np.matrix(X)
 kmeans = KMeans(n_clusters=2).fit(X_list)
 kmeans
 kmeans.labels_
 kmeans.cluster_centers_
+
+
+#Reference
+# https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do
+# http://blog.blackwhite.tw/2013/05/python-yield-generator.html
+# https://stackoverflow.com/questions/31683959/the-zip-function-in-python-3
+# https://stackoverflow.com/questions/14637154/performing-len-on-list-of-a-zip-object-clears-zip
