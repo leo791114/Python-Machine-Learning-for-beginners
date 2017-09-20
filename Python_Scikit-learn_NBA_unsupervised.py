@@ -25,7 +25,41 @@
 #     <li><a href='https://www.datascience.com/blog/introduction-to-k-means-clustering-algorithm-learn-data-science-tutorials'>Introduction to K-means Clusting</a></li>
 # </ol>
 
-# In[ ]:
+# <h4 style='color: red'>sklearn.metrics:</h4>
+# <p>The <em>sklearn.metrics</em> module includes score functions, performance metrics and pairwise
+# metrics and distance computations</p>
+# 
+# <p style='color: blue'>sklearn.metrics.<b>silhouette_samples</b>(X, labels, metric='euclidean', **kwds)</p>
+# <p>Compute the Silhouette Coefficient for each sample.</p>
+#     
+# <p>The Silhouette Coefficient is a measure of how well samples are clustered with the samples  that are similar to themselves.</p>
+#     
+# <p>Clustering models with high Silhouette Coefficient are said to be dense, where samples in the same cluster are similiar to each other, and well separated, where samples in different clusters are  not very similar to each other.</p>
+# 
+# <p>The Silhouette Coefficient is calculated using the mean intra-cluster distance (<mark>a</mark>) and the mean nearest-cluster distance (<mark>b</mark>) for each sample. The Silhouette Coefficient for a sample is <mark>(b-a)/max(a,b)</mark>.
+
+# In[1]:
+
+# import packages
+from sklearn import datasets
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_samples
+from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
+from matplotlib import cm
+import numpy as np
+import pandas as pd
+from scipy.spatial.distance import pdist,squareform
+from scipy.cluster.hierarchy import linkage
+from scipy.cluster.hierarchy import dendrogram
 
 
+# In[10]:
+
+df = pd.read_csv('player_traditional.csv')
+# print(df.columns)
+# print(df.index)
+# print(df)
+X = df.iloc[:,2:]
+print(X)
 
