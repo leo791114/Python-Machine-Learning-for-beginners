@@ -11794,6 +11794,7 @@ data. The goal of this algorithm is to find groups in the data, with the number 
 <ol>
     <li><a href='http://mnemstudio.org/clustering-k-means-example-1.htm'>k-Means: Step-By-Step</li>
     <li><a href='https://www.datascience.com/blog/introduction-to-k-means-clustering-algorithm-learn-data-science-tutorials'>Introduction to K-means Clusting</a></li>
+    <li><a href='https://www.naftaliharris.com/blog/visualizing-k-means-clustering/'>Visualizing K-Means Clustering</a></li>
 </ol>
 </div>
 </div>
@@ -11837,13 +11838,11 @@ metrics and distance computations</p><p style='color: blue'>sklearn.metrics.<b>s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;player_traditional.csv&#39;</span><span class="p">)</span>
-<span class="c1"># print(df.columns)</span>
-<span class="c1"># print(df.index)</span>
-<span class="c1"># print(df)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load data file as pandas dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;player_traditional.csv&#39;</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
@@ -11860,11 +11859,7 @@ metrics and distance computations</p><p style='color: blue'>sklearn.metrics.<b>s
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Index([&#39;PLAYER&#39;, &#39;Conference&#39;, &#39;MIN&#39;, &#39;PTS&#39;, &#39;FGM&#39;, &#39;FGA&#39;, &#39;FG%&#39;, &#39;3PM&#39;, &#39;3PA&#39;,
-       &#39;3P%&#39;, &#39;FTM&#39;, &#39;FTA&#39;, &#39;FT%&#39;, &#39;OREB&#39;, &#39;DREB&#39;, &#39;REB&#39;, &#39;AST&#39;, &#39;TOV&#39;, &#39;STL&#39;,
-       &#39;BLK&#39;, &#39;PF&#39;, &#39;DD2&#39;, &#39;TD3&#39;, &#39;+/-&#39;],
-      dtype=&#39;object&#39;)
-      MIN   PTS   FGM   FGA   FG%  3PM  3PA   3P%  FTM  FTA ...   DREB   REB  \
+<pre>      MIN   PTS   FGM   FGA   FG%  3PM  3PA   3P%  FTM  FTA ...   DREB   REB  \
 0     7.4   2.2   0.8   1.9  40.5  0.2  0.5  50.0  0.4  0.9 ...    1.3   1.6   
 1    13.7   5.0   1.9   4.6  40.3  0.7  2.0  37.5  0.5  0.6 ...    0.8   1.1   
 2    28.7  12.7   4.9  10.8  45.4  1.0  3.3  28.8  2.0  2.7 ...    3.6   5.1   
@@ -11995,6 +11990,140 @@ metrics and distance computations</p><p style='color: blue'>sklearn.metrics.<b>s
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Standardize</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># X&#39;s mean values of each feature</span>
+<span class="n">X_mean</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">mean_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_mean</span><span class="p">)</span>
+
+<span class="c1"># X&#39;s variances of each feature which are used to compute scale_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">var_</span><span class="p">)</span>
+
+<span class="c1"># X&#39;s standard deviations of each feature</span>
+<span class="n">X_std</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">scale_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_std</span><span class="p">)</span>
+
+<span class="c1"># Transform X </span>
+<span class="n">X_train_std</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[ 19.89958848   8.42674897   3.12016461   6.91399177  44.03703704
+   0.768107     2.1845679   27.71769547   1.42489712   1.86069959
+  71.82798354   0.85144033   2.71522634   3.56522634   1.83024691
+   1.09814815   0.62530864   0.39259259   1.68024691   4.17901235
+   0.24074074  -0.34032922]
+MIN     19.899588
+PTS      8.426749
+FGM      3.120165
+FGA      6.913992
+FG%     44.037037
+3PM      0.768107
+3PA      2.184568
+3P%     27.717695
+FTM      1.424897
+FTA      1.860700
+FT%     71.827984
+OREB     0.851440
+DREB     2.715226
+REB      3.565226
+AST      1.830247
+TOV      1.098148
+STL      0.625309
+BLK      0.392593
+PF       1.680247
+DD2      4.179012
+TD3      0.240741
++/-     -0.340329
+dtype: float64
+[  8.19322221e+01   3.66232351e+01   4.64864689e+00   2.04286108e+01
+   1.01768505e+02   5.69661849e-01   3.76266308e+00   2.20456724e+02
+   2.03923610e+00   2.98345548e+00   3.52375349e+02   5.75707802e-01
+   3.23972701e+00   5.88543688e+00   3.11272710e+00   6.09564472e-01
+   1.68310090e-01   1.73895748e-01   5.42778540e-01   9.56778311e+01
+   5.17866941e+00   7.85133652e+00]
+[  9.05164195   6.0517134    2.1560721    4.51980208  10.08803771
+   0.75475946   1.93975851  14.84778515   1.42801824   1.72726821
+  18.77166345   0.75875411   1.79992417   2.42599194   1.76429224
+   0.7807461    0.41025613   0.41700809   0.73673505   9.78150454
+   2.275669     2.80202365]
+MIN      9.060969
+PTS      6.057949
+FGM      2.158294
+FGA      4.524459
+FG%     10.098432
+3PM      0.755537
+3PA      1.941757
+3P%     14.863084
+FTM      1.429490
+FTA      1.729048
+FT%     18.791006
+OREB     0.759536
+DREB     1.801779
+REB      2.428492
+AST      1.766110
+TOV      0.781551
+STL      0.410679
+BLK      0.417438
+PF       0.737494
+DD2      9.791583
+TD3      2.278014
++/-      2.804911
+dtype: float64
+[[-1.38091946 -1.02892331 -1.07610715 ..., -0.42723615 -0.105789
+   0.05008138]
+ [-0.68491314 -0.56624442 -0.56592013 ..., -0.42723615 -0.105789   -0.0569841 ]
+ [ 0.97224477  0.70612251  0.82549901 ...,  0.28840018 -0.105789
+  -0.59231148]
+ ..., 
+ [ 1.91130091  1.73062575  1.75311178 ..., -0.42723615 -0.105789
+  -0.77075395]
+ [ 0.50824055  0.93746195  1.2893054  ...,  1.61743907 -0.105789
+   0.47834329]
+ [-0.19881348 -0.38447772 -0.38039758 ..., -0.01830111 -0.105789
+   2.26276792]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
 </div>
 </div>
 

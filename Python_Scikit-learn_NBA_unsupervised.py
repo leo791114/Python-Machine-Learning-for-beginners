@@ -23,6 +23,7 @@
 # <ol>
 #     <li><a href='http://mnemstudio.org/clustering-k-means-example-1.htm'>k-Means: Step-By-Step</li>
 #     <li><a href='https://www.datascience.com/blog/introduction-to-k-means-clustering-algorithm-learn-data-science-tutorials'>Introduction to K-means Clusting</a></li>
+#     <li><a href='https://www.naftaliharris.com/blog/visualizing-k-means-clustering/'>Visualizing K-Means Clustering</a></li>
 # </ol>
 
 # <h4 style='color: red'>sklearn.metrics:</h4>
@@ -54,12 +55,39 @@ from scipy.cluster.hierarchy import linkage
 from scipy.cluster.hierarchy import dendrogram
 
 
-# In[10]:
+# In[3]:
 
+# Load data file as pandas dataframe
 df = pd.read_csv('player_traditional.csv')
-# print(df.columns)
-# print(df.index)
-# print(df)
 X = df.iloc[:,2:]
 print(X)
+
+
+# In[13]:
+
+# Standardize
+sc = StandardScaler()
+sc.fit(X)
+
+# X's mean values of each feature
+X_mean = X.mean(axis = 0)
+print(sc.mean_)
+print(X_mean)
+
+# X's variances of each feature which are used to compute scale_
+print(sc.var_)
+
+# X's standard deviations of each feature
+X_std = X.std(axis = 0)
+print(sc.scale_)
+print(X_std)
+
+# Transform X 
+X_train_std = sc.transform(X)
+print(X_train_std)
+
+
+# In[ ]:
+
+
 
