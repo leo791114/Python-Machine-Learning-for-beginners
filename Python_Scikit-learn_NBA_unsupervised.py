@@ -55,7 +55,7 @@ from scipy.cluster.hierarchy import linkage
 from scipy.cluster.hierarchy import dendrogram
 
 
-# In[3]:
+# In[2]:
 
 # Load data file as pandas dataframe
 df = pd.read_csv('player_traditional.csv')
@@ -63,7 +63,7 @@ X = df.iloc[:,2:]
 print(X)
 
 
-# In[13]:
+# In[3]:
 
 # Standardize
 sc = StandardScaler()
@@ -87,7 +87,14 @@ X_train_std = sc.transform(X)
 print(X_train_std)
 
 
-# In[ ]:
+# In[8]:
 
+#Normal Kmeans method
 
+km = KMeans(n_clusters=3, init='random', max_iter=300, tol=1e-04, random_state=0)
+y_km = km.fit(X_train_std)
+y_km.predict(X_train_std)
+y_2_km = km.fit_predict(X_train_std)
+print(type(y_km))
+print(y_2_km)
 

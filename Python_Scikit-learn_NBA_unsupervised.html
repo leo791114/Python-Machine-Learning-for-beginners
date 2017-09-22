@@ -11838,7 +11838,7 @@ metrics and distance computations</p><p style='color: blue'>sklearn.metrics.<b>s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load data file as pandas dataframe</span>
@@ -11996,7 +11996,7 @@ metrics and distance computations</p><p style='color: blue'>sklearn.metrics.<b>s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Standardize</span>
@@ -12117,13 +12117,50 @@ dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Normal Kmeans method</span>
+
+<span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-04</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y_km</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">)</span>
+<span class="n">y_km</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">)</span>
+<span class="n">y_2_km</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">y_km</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_2_km</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;sklearn.cluster.k_means_.KMeans&#39;&gt;
+[1 1 0 1 1 0 1 0 1 0 1 1 0 0 1 0 1 0 1 2 0 0 0 0 1 2 1 1 2 1 0 1 1 1 0 0 0
+ 1 1 1 1 0 2 1 1 1 0 1 2 1 1 0 0 0 1 1 1 1 2 1 1 0 1 2 0 1 1 0 2 1 0 1 1 1
+ 1 1 2 1 0 0 1 1 0 0 1 0 1 1 1 2 1 1 2 0 0 1 1 0 1 0 1 0 1 1 1 2 1 1 2 2 0
+ 1 1 1 2 1 0 0 1 0 1 2 1 0 1 1 0 0 0 1 1 1 1 2 2 0 2 0 1 1 0 1 0 0 2 0 0 0
+ 0 0 1 0 0 1 1 0 1 1 1 0 2 1 2 2 0 0 1 0 2 1 1 1 0 0 1 1 2 0 0 1 0 0 0 0 1
+ 2 0 0 1 1 0 0 0 0 2 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 2 1 1 0 0 1 0 2 0 0 0 0
+ 0 1 1 1 2 1 0 1 1 2 1 0 1 0 1 1 0 0 1 1 1 1 1 1 1 0 2 1 0 1 0 1 0 0 0 1 2
+ 2 1 0 0 2 0 0 0 2 2 1 1 0 2 0 1 1 2 1 0 2 0 1 1 2 2 1 1 1 1 0 1 1 2 1 0 1
+ 0 1 1 0 1 0 1 1 1 0 2 1 0 0 1 0 0 1 1 0 0 0 1 0 0 0 0 0 1 1 1 0 0 1 0 2 1
+ 1 1 1 1 1 1 1 0 0 2 0 0 0 1 0 2 1 1 0 2 0 2 1 0 1 1 1 1 0 0 1 1 1 0 1 0 0
+ 0 2 2 1 1 1 1 1 1 0 1 1 1 1 1 0 1 0 1 1 0 2 0 0 0 0 1 1 0 1 1 2 2 2 0 1 1
+ 1 1 0 1 0 0 0 1 1 1 0 1 0 0 0 0 1 1 2 1 1 0 0 0 0 0 1 0 0 1 0 0 1 1 1 0 0
+ 1 0 1 0 1 1 0 0 0 1 0 0 1 1 0 1 1 0 1 0 1 1 0 0 1 1 0 0 1 0 1 1 0 0 0 1 0
+ 0 0 0 0 0]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
