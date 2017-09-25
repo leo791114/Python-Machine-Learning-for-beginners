@@ -11809,7 +11809,7 @@ data. The goal of this algorithm is to find groups in the data, with the number 
     </tr>
 </table><p><h5>Example:</h5></p>
 <p>With <mark>max_inter=300</mark> and <mark>n_init=15</mark>, kmeans will choose initial centroids 15 times, and each run will use up to 300 iterations. The best out of those 10 runs will be the final result.</p>
-<p>The centroids are chosen by weighted probability where the probability is propotional to <mark>D(x)^2</mark>  (the distance between new dat a point which is the candidate of new centroid and the nearest centroid that has already been chosen)</p><p><h5>Reference:</h5></p>
+<p>The centroids are chosen by weighted probability where the probability is propotional to <mark>D(x)^2</mark>  (the distance between new dat a point which is the candidate of new centroid and the nearest centroid that has already been chosen, k-means++)</p><p><h5>Reference:</h5></p>
 <ol>
     <li><a href='http://mnemstudio.org/clustering-k-means-example-1.htm'>k-Means: Step-By-Step</li>
     <li><a href='https://www.datascience.com/blog/introduction-to-k-means-clustering-algorithm-learn-data-science-tutorials'>Introduction to K-means Clusting</a></li>
@@ -11836,7 +11836,7 @@ metrics and distance computations</p><p style='color: blue'>sklearn.metrics.<b>s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import packages</span>
@@ -11860,7 +11860,7 @@ metrics and distance computations</p><p style='color: blue'>sklearn.metrics.<b>s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load data file as pandas dataframe</span>
@@ -12018,7 +12018,7 @@ metrics and distance computations</p><p style='color: blue'>sklearn.metrics.<b>s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Standardize</span>
@@ -12139,15 +12139,15 @@ dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Normal Kmeans method</span>
 
-<span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-04</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">y_km</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">)</span>
+<span class="n">km_norm</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-04</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y_km</span> <span class="o">=</span> <span class="n">km_norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">)</span>
 <span class="n">y_km</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">)</span>
-<span class="n">y_2_km</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">)</span>
+<span class="n">y_2_km</span> <span class="o">=</span> <span class="n">km_norm</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">y_km</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">y_2_km</span><span class="p">)</span>
 </pre></div>
@@ -12196,6 +12196,82 @@ dtype: float64
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># k-means++ method</span>
+<span class="n">km_pp</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;k-means++&#39;</span><span class="p">,</span><span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-04</span><span class="p">)</span>
+<span class="n">y_km_pp</span> <span class="o">=</span> <span class="n">km_pp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">)</span>
+<span class="n">y_km_pp</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">)</span>
+<span class="n">y_km_pp_2</span> <span class="o">=</span> <span class="n">km_pp</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">y_km_pp</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_km_pp_2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[0 0 2 0 0 2 0 2 0 2 0 0 2 2 0 2 0 2 0 1 2 2 2 2 0 1 0 0 1 0 2 0 0 0 0 2 2
+ 0 0 0 0 2 1 0 0 0 2 0 1 0 0 2 2 2 0 0 0 0 1 0 0 2 0 1 2 0 0 2 1 0 2 0 0 0
+ 0 0 1 0 2 2 0 0 2 2 0 2 0 0 0 1 0 0 1 2 2 0 0 2 0 2 0 2 0 0 0 1 0 0 1 1 2
+ 0 0 0 1 0 2 2 0 2 0 1 0 2 0 0 2 2 2 0 0 0 0 1 1 2 1 2 0 0 2 0 2 2 1 2 2 2
+ 2 2 0 2 2 0 0 2 0 0 0 2 1 0 1 1 2 2 0 2 1 0 0 0 2 2 0 0 1 2 2 0 2 2 2 2 0
+ 1 2 2 0 0 2 2 2 2 1 2 0 0 0 2 0 0 0 0 0 0 0 0 0 2 1 0 0 2 2 0 2 1 2 2 2 2
+ 2 0 0 0 1 0 2 0 0 1 0 2 0 2 0 0 2 2 0 0 0 0 0 0 0 2 1 0 2 0 2 0 2 2 2 0 1
+ 1 0 2 2 1 2 2 2 1 1 0 0 2 1 2 0 0 1 0 2 1 2 0 0 1 1 0 0 0 0 2 0 0 1 0 2 0
+ 2 0 0 2 0 2 0 0 0 2 1 0 2 2 0 2 2 0 0 2 2 2 0 2 2 2 2 2 0 0 0 2 2 0 2 1 0
+ 0 0 0 0 0 0 0 2 2 1 2 2 2 0 2 1 0 0 2 1 2 1 0 2 0 0 0 0 2 2 0 0 0 2 0 2 2
+ 2 1 1 0 0 0 0 0 0 2 0 0 0 0 0 2 0 2 0 0 2 1 2 2 2 2 0 0 2 0 0 1 1 1 2 0 0
+ 0 0 2 0 2 2 2 0 0 0 2 0 2 2 2 2 0 0 1 0 0 2 2 2 2 2 0 2 2 0 2 2 0 0 0 2 2
+ 0 2 0 2 0 0 2 2 2 0 2 2 0 0 2 0 0 2 0 2 0 0 2 2 0 0 2 2 0 2 0 0 2 2 2 0 2
+ 2 2 2 2 2]
+[0 0 2 0 0 2 0 2 0 2 0 0 2 2 0 2 0 2 0 1 2 2 2 2 0 1 0 0 1 0 2 0 0 0 0 2 2
+ 0 0 0 0 2 1 0 0 0 2 0 1 0 0 2 2 2 0 0 0 0 1 0 0 2 0 1 2 0 0 2 1 0 2 0 0 0
+ 0 0 1 0 2 2 0 0 2 2 0 2 0 0 0 1 0 0 1 2 2 0 0 2 0 2 0 2 0 0 0 1 0 0 1 1 2
+ 0 0 0 1 0 2 2 0 2 0 1 0 2 0 0 2 2 2 0 0 0 0 1 1 2 1 2 0 0 2 0 2 2 1 2 2 2
+ 2 2 0 2 2 0 0 2 0 0 0 2 1 0 1 1 2 2 0 2 1 0 0 0 2 2 0 0 1 2 2 0 2 2 2 2 0
+ 1 2 2 0 0 2 2 2 2 1 2 0 0 0 2 0 0 0 0 0 0 0 0 0 2 1 0 0 2 2 0 2 1 2 2 2 2
+ 2 0 0 0 1 0 2 0 0 1 0 2 0 2 0 0 2 2 0 0 0 0 0 0 0 2 1 0 2 0 2 0 2 2 2 0 1
+ 1 0 2 2 1 2 2 2 1 1 0 0 2 1 2 0 0 1 0 2 1 2 0 0 1 1 0 0 0 0 2 0 0 1 0 2 0
+ 2 0 0 2 0 2 0 0 0 2 1 0 2 2 0 2 2 0 0 2 2 2 0 2 2 2 2 2 0 0 0 2 2 0 2 1 0
+ 0 0 0 0 0 0 0 2 2 1 2 2 2 0 2 1 0 0 2 1 2 1 0 2 0 0 0 0 2 2 0 0 0 2 0 2 2
+ 2 1 1 0 0 0 0 0 0 2 0 0 0 0 0 2 0 2 0 0 2 1 2 2 2 2 0 0 2 0 0 1 1 1 2 0 0
+ 0 0 2 0 2 2 2 0 0 0 2 0 2 2 2 2 0 0 1 0 0 2 2 2 2 2 0 2 2 0 2 2 0 0 0 2 2
+ 0 2 0 2 0 0 2 2 2 0 2 2 0 0 2 0 0 2 0 2 0 0 2 2 0 0 2 2 0 2 0 0 2 2 2 0 2
+ 2 2 2 2 2]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
 </div>
 </div>
 

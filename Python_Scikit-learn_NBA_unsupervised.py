@@ -38,7 +38,7 @@
 # 
 # <h5>Example:</h5>
 # <p>With <mark>max_inter=300</mark> and <mark>n_init=15</mark>, kmeans will choose initial centroids 15 times, and each run will use up to 300 iterations. The best out of those 10 runs will be the final result.</p>
-# <p>The centroids are chosen by weighted probability where the probability is propotional to <mark>D(x)^2</mark>  (the distance between new dat a point which is the candidate of new centroid and the nearest centroid that has already been chosen)</p>
+# <p>The centroids are chosen by weighted probability where the probability is propotional to <mark>D(x)^2</mark>  (the distance between new dat a point which is the candidate of new centroid and the nearest centroid that has already been chosen, k-means++)</p>
 #     
 # <h5>Reference:</h5>
 # <ol>
@@ -63,7 +63,7 @@
 # 
 # <p>The Silhouette Coefficient is calculated using the mean intra-cluster distance (<mark>a</mark>) and the mean nearest-cluster distance (<mark>b</mark>) for each sample. The Silhouette Coefficient for a sample is <mark>(b-a)/max(a,b)</mark>.
 
-# In[1]:
+# In[2]:
 
 # import packages
 from sklearn import datasets
@@ -79,7 +79,7 @@ from scipy.cluster.hierarchy import linkage
 from scipy.cluster.hierarchy import dendrogram
 
 
-# In[2]:
+# In[3]:
 
 # Load data file as pandas dataframe
 df = pd.read_csv('player_traditional.csv')
@@ -87,7 +87,7 @@ X = df.iloc[:,2:]
 print(X)
 
 
-# In[3]:
+# In[4]:
 
 # Standardize
 sc = StandardScaler()
@@ -111,14 +111,31 @@ X_train_std = sc.transform(X)
 print(X_train_std)
 
 
-# In[7]:
+# In[19]:
 
 #Normal Kmeans method
 
-km = KMeans(n_clusters=3, init='random', max_iter=300, tol=1e-04, random_state=0)
-y_km = km.fit(X_train_std)
+km_norm = KMeans(n_clusters=3, init='random', max_iter=300, tol=1e-04, random_state=0)
+y_km = km_norm.fit(X_train_std)
 y_km.predict(X_train_std)
-y_2_km = km.fit_predict(X_train_std)
+y_2_km = km_norm.fit_predict(X_train_std)
 print(y_km.labels_)
 print(y_2_km)
+
+
+# In[25]:
+
+# k-means++ method
+km_pp = KMeans(n_clusters=3, init='k-means++',n_init=10, max_iter= 300, tol=1e-04)
+y_km_pp = km_pp.fit(X_train_std)
+y_km_pp.predict(X_train_std)
+y_km_pp_2 = km_pp.fit_predict(X_train_std)
+
+print(y_km_pp.labels_)
+print(y_km_pp_2)
+
+
+# In[ ]:
+
+
 
