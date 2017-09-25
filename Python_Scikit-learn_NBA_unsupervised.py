@@ -19,11 +19,35 @@
 #     <li>Labels for the training data (each data point is assigned to a single cluster)</li>
 # </ol>
 # 
+# <h4 style='color: red'>Confusing KMeans parameter:</h4>
+# 
+# <table align='left' style='margin-bottom: 10px'>
+#     <tr style='border: 1px solid black'>
+#         <th style='text-align: left; border-right: 1px solid black'>max_iter</th>
+#         <td style='text-align: left'>
+#            Maximum number of iterations of the K-means algorithm for a single run. (int, default: 300)
+#         </td>
+#     </tr>
+#     <tr style='border: 1px solid black'>
+#         <th style='text-align: left; border-right: 1px solid black'>n_init</th>
+#         <td style='text-align: left'>
+#            Number of time the k-means algorithm will be run with different centroid seeds. The final results will be the best output of n_init consecutive runs in terms of inertia. (int, default: 10)
+#         </td>
+#     </tr>
+# </table>
+# 
+# <h5>Example:</h5>
+# <p>With <mark>max_inter=300</mark> and <mark>n_init=15</mark>, kmeans will choose initial centroids 15 times, and each run will use up to 300 iterations. The best out of those 10 runs will be the final result.</p>
+# <p>The centroids are chosen by weighted probability where the probability is propotional to <mark>D(x)^2</mark>  (the distance between new dat a point which is the candidate of new centroid and the nearest centroid that has already been chosen)</p>
+#     
 # <h5>Reference:</h5>
 # <ol>
 #     <li><a href='http://mnemstudio.org/clustering-k-means-example-1.htm'>k-Means: Step-By-Step</li>
 #     <li><a href='https://www.datascience.com/blog/introduction-to-k-means-clustering-algorithm-learn-data-science-tutorials'>Introduction to K-means Clusting</a></li>
 #     <li><a href='https://www.naftaliharris.com/blog/visualizing-k-means-clustering/'>Visualizing K-Means Clustering</a></li>
+#     <li><a href='https://stackoverflow.com/questions/5466323/how-exactly-does-k-means-work'>How exactly does k-means++ work?</a></li>
+#     <li><a href='https://stats.stackexchange.com/questions/246061/what-are-the-advantages-of-the-pre-defined-initial-centroids-in-clustering'>What are the advantages of the pre-defined initial centroids in clustering?</a></li>
+#     <li><a href='https://stackoverflow.com/questions/40895697/sklearn-kmeans-parameter-confusion'>Sklearn Kmeans paremeter confusion?</a></li>
 # </ol>
 
 # <h4 style='color: red'>sklearn.metrics:</h4>
@@ -87,7 +111,7 @@ X_train_std = sc.transform(X)
 print(X_train_std)
 
 
-# In[8]:
+# In[7]:
 
 #Normal Kmeans method
 
@@ -95,6 +119,6 @@ km = KMeans(n_clusters=3, init='random', max_iter=300, tol=1e-04, random_state=0
 y_km = km.fit(X_train_std)
 y_km.predict(X_train_std)
 y_2_km = km.fit_predict(X_train_std)
-print(type(y_km))
+print(y_km.labels_)
 print(y_2_km)
 
