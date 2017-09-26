@@ -62,8 +62,16 @@
 # <p>Clustering models with high Silhouette Coefficient are said to be dense, where samples in the same cluster are similiar to each other, and well separated, where samples in different clusters are  not very similar to each other.</p>
 # 
 # <p>The Silhouette Coefficient is calculated using the mean intra-cluster distance (<mark>a</mark>) and the mean nearest-cluster distance (<mark>b</mark>) for each sample. The Silhouette Coefficient for a sample is <mark>(b-a)/max(a,b)</mark>.
+# 
+# <h4 style='color: red'>scipy.spatial.distance.pdist / scipy.spatial.distance.squareform:</h4>
+# <p><mark>scipy.spatial.distance.pdist:</mark> Pairwise distances between observations in n-dimentional space</p>
+# <p><mark>scipy.spatial.distance.squareform:</mark> Converts a vector-form distance vector (pdist) to a square-form distance matrix, and vice-versa.</p>
+# 
+# <h5>Reference:</h5>
+# <p><a href='https://stackoverflow.com/questions/32946241/scipy-pdist-on-a-pandas-dataframe'>scipy pdist() on a pandas DataFrame</a></p>
+# <p><a href='https://joernhees.de/blog/2015/08/26/scipy-hierarchical-clustering-and-dendrogram-tutorial/'>Scipy Hierarchical Clustering and Dendrogram Tutorial</a></p>
 
-# In[2]:
+# In[24]:
 
 # import packages
 from sklearn import datasets
@@ -79,7 +87,7 @@ from scipy.cluster.hierarchy import linkage
 from scipy.cluster.hierarchy import dendrogram
 
 
-# In[3]:
+# In[2]:
 
 # Load data file as pandas dataframe
 df = pd.read_csv('player_traditional.csv')
@@ -87,7 +95,7 @@ X = df.iloc[:,2:]
 print(X)
 
 
-# In[4]:
+# In[3]:
 
 # Standardize
 sc = StandardScaler()
@@ -111,7 +119,7 @@ X_train_std = sc.transform(X)
 print(X_train_std)
 
 
-# In[19]:
+# In[4]:
 
 #Normal Kmeans method
 
@@ -123,7 +131,7 @@ print(y_km.labels_)
 print(y_2_km)
 
 
-# In[25]:
+# In[5]:
 
 # k-means++ method
 km_pp = KMeans(n_clusters=3, init='k-means++',n_init=10, max_iter= 300, tol=1e-04)
@@ -133,6 +141,16 @@ y_km_pp_2 = km_pp.fit_predict(X_train_std)
 
 print(y_km_pp.labels_)
 print(y_km_pp_2)
+
+
+# In[29]:
+
+#Hierarchical clustering on a distance matrix
+new_df = pd.read_csv('player_traditional2.csv')
+# print(new_df.columns)
+
+row_dist = pd.DataFrame(squareform(pdist(new_df, metric='euclidean')))
+row_dist
 
 
 # In[ ]:
