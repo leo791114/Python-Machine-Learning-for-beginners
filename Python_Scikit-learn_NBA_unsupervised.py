@@ -70,8 +70,10 @@
 # <h5>Reference:</h5>
 # <p><a href='https://stackoverflow.com/questions/32946241/scipy-pdist-on-a-pandas-dataframe'>scipy pdist() on a pandas DataFrame</a></p>
 # <p><a href='https://joernhees.de/blog/2015/08/26/scipy-hierarchical-clustering-and-dendrogram-tutorial/'>Scipy Hierarchical Clustering and Dendrogram Tutorial</a></p>
+# <p><a href='https://stackoverflow.com/questions/37712465/what-is-the-meaning-of-the-return-values-of-the-scipy-cluster-hierarchy-linkage'>What is the meaning of the return values of the scipy.cluster.hierarchy.linkage?</a></p>
+# <p><a href='https://stackoverflow.com/questions/36847022/what-numbers-that-i-can-put-in-numpy-random-seed'>What numbers that I can put in numpy.random.seed()?</a></p>
 
-# In[24]:
+# In[1]:
 
 # import packages
 from sklearn import datasets
@@ -143,7 +145,7 @@ print(y_km_pp.labels_)
 print(y_km_pp_2)
 
 
-# In[29]:
+# In[6]:
 
 #Hierarchical clustering on a distance matrix
 new_df = pd.read_csv('player_traditional2.csv')
@@ -151,6 +153,12 @@ new_df = pd.read_csv('player_traditional2.csv')
 
 row_dist = pd.DataFrame(squareform(pdist(new_df, metric='euclidean')))
 row_dist
+
+
+# In[21]:
+
+a = np.random.multivariate_normal([0, 0], [[1,0],[0,100]], 5)
+print(a)
 
 
 # In[ ]:
