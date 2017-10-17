@@ -69,9 +69,20 @@
 # 
 # <h5>Reference:</h5>
 # <p><a href='https://stackoverflow.com/questions/32946241/scipy-pdist-on-a-pandas-dataframe'>scipy pdist() on a pandas DataFrame</a></p>
+# <p><a href='https://stackoverflow.com/questions/36847022/what-numbers-that-i-can-put-in-numpy-random-seed'>What numbers that I can put in numpy.random.seed()?</a></p>
+
+# <h4 style='color: red'>scipy.cluster.hierarchy</h4>
+# <p><em style='color: blue'>Hierarchical clustering:</em> It's a method of cluster analysis which splits(Divisive) or merges(Agglomerative) data layer by layer, and finally it will create a dendrogram based on the clustering result.</p>
+# <p style='color: blue'>scipy.cluster.hierarchy.<b>linkage</b>(y, method='single', metric='euclidean')</p>
+# 
+# <p style='color: blue'>scipy.cluster.hierarchy.<b>cophenet</b>(Z, Y=None)</p>
+# 
+# <h5>Reference:</h5>
 # <p><a href='https://joernhees.de/blog/2015/08/26/scipy-hierarchical-clustering-and-dendrogram-tutorial/'>Scipy Hierarchical Clustering and Dendrogram Tutorial</a></p>
 # <p><a href='https://stackoverflow.com/questions/37712465/what-is-the-meaning-of-the-return-values-of-the-scipy-cluster-hierarchy-linkage'>What is the meaning of the return values of the scipy.cluster.hierarchy.linkage?</a></p>
-# <p><a href='https://stackoverflow.com/questions/36847022/what-numbers-that-i-can-put-in-numpy-random-seed'>What numbers that I can put in numpy.random.seed()?</a></p>
+# <p><a href='http://radio.feld.cvut.cz/matlab/toolbox/stats/cophenet.html'>Statistic Toolbox - cophenet</a></p>
+# <p><a href='https://stats.stackexchange.com/questions/82326/how-to-interpret-the-dendrogram-of-a-hierarchical-cluster-analysis'>How to interpret the dendrogram of a hierarchical cluster analysis?</a></p>
+# 
 
 # In[1]:
 
